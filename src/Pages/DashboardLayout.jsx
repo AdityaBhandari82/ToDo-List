@@ -16,7 +16,7 @@ function Attendancepage() {
             </div>
             <div className='w-9/12'>
               <Outlet/>
-             
+             <Home />
             </div>
         </div>
     

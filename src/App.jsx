@@ -38,6 +38,10 @@ import AllowanceDeductionTypes from './Component/Payroll/AllowanceDeductionTypes
 import AllowanceDeduction from './Component/Payroll/AllowanceDeduction';
 import PayrollFinalReport from './Component/Payroll/PayrollFinalReport';
 import PayrollPublish from './Component/Payroll/PayrollPublish';
+import ManagmentDashboard from "./Component/Dashboard/ManagmentDashboard"
+import ShiftLayout from "./Pages/ShiftLayout"
+import SetupPopup from './Pages/CreateShiftLayout';
+// import ShiftLayout from "./Component"
 function App() {
  
   const router = createBrowserRouter([
@@ -45,6 +49,10 @@ function App() {
       path:"/",
       element:<DashboardLayout/>
     },
+    // {
+    //     path:'managmentDashboard',
+    //     element:<ManagmentDashboard />
+    // },
     //attendance
     {
       path:"/attendance",
@@ -196,7 +204,16 @@ function App() {
           element:<PayrollPublish/>
         }
       ]
+    },
+    {
+      path:"/shiftSettup",
+      element:<ShiftLayout />,
+      children:[{
+          path:'/shiftSettup/create_shift',
+          element:<SetupPopup />
+      }]
     }
+   
   ])
   
    

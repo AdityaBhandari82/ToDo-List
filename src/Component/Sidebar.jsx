@@ -80,7 +80,7 @@ function Sidebar() {
       {name:"Payroll Publish Report", path:"/payroll/payroll_publish_report"}
     ] },
     { name: "Shift Setup", icon: shift, path: "/shiftsetup",subMenu:[
-      {name:"Create Shift", Path:"/shiftsetup/create_shift"},
+      {name:"Create Shift", Path:"/shiftSettup/create_shift"},
       {name:"Assign Shift Employee", path:"/shiftsetup/assign_shift_employee"},
     ] },
     { name: "Employee Management", icon: management, path: "/employeemanagement",subMenu:[

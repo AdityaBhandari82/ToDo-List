@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import { GoHome } from "react-icons/go";
+import { FaRegUser } from "react-icons/fa";
+import ManagmentDashboard from "./ManagmentDashboard";
+
 function Home() {
+  const [toDate, setToDate] = useState("");
+  const [fromDate, setFromDate] = useState("From Date");
+  const [activeTab, setActiveTab] = useState("employee"); // Default tab is Employee Dashboard
+
   return (
     <>
       <section className="bg-sky-100 flex flex-col w-full h-screen">
+        {/* Header */}
         <div className="h-20 bg-slate-700 flex flex-row w-full justify-end items-center pr-4">
           <div className="flex justify-center items-center space-x-1.5">
             <p className="text-gray-300 text-xl">Santosh</p>
@@ -15,96 +24,179 @@ function Home() {
           </div>
         </div>
 
-        <div className="bg-[#dbf2ff] p-4">
-            <div className="flex flex-wrap gap-4 border-b pb-2">
-              <Link to="/employeeDashboard">
-                <div className="cursor-pointer flex items-center gap-3">
-                  <img src="" alt="Home Icon" />
-                  <p className="font-medium text-[#0091DF] text-lg md:text-xl">
-                    Employee Dashboard
-                  </p>
-                </div>
-              </Link>
-              <div className="flex items-center gap-3">
-                <img src="" alt="User Icon" />
-                <p className="font-medium text-[#0091DF] text-lg md:text-xl">
-                  Management Dashboard
-                </p>
-              </div>
-            </div>
+        {/* Main Content */}
+        <div className="bg-[#dbf2ff] p-4 w-full flex flex-col">
+          {/* Tabs */}
+          <div className="flex flex-wrap gap-4  border-[#D3D3D3] ">
+          <div
+  className={`cursor-pointer flex items-center gap-3 p-2 rounded-t-lg ${
+    activeTab === "employee" ? "font-bold text-blue-600 bg-white" : "bg-transparent"
+  }`}
+  onClick={() => setActiveTab("employee")}
+>
+  <img src="" alt="Home Icon" />
+  <p className="font-[500] text-[18px] md:text-[20px] text-[#636363]">
+    Employee Dashboard
+  </p>
+</div>
 
-            {/* Grid Section - Kept Original Size */}
-            <div className="ml-4 mt-4">
-              <div className="grid grid-cols-[15%_30%_15%_15%_15%] gap-5">
-                <div className="bg-[#26B3FF] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
-                  <div className="flex flex-col items-center text-white">
-                    <img src="" alt=" Icon" />
-                    <h1 className="pt-4 font-[500] text-[18px] text-center">15</h1>
-                    <p className="pt-1 font-[500] text-[14px]">Total Employee</p>
-                  </div>
-                </div>
-                <div className="bg-[#24948A] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
-                  <div className="flex flex-col items-center text-white">
-                    <img src="" alt=" Icon" />
-                    <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
-                    <p className="pt-1 font-[500] text-[14px]">Present Today</p>
-                  </div>
-                </div>
-                <div className="bg-[#FFD755] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
-                  <div className="flex flex-col items-center text-white">
-                    <img src="" alt=" Icon" />
-                    <h1 className="pt-4 font-[500] text-[18px] text-center">15</h1>
-                    <p className="pt-1 font-[500] text-[14px]">Absent Today</p>
-                  </div>
-                </div>
-                <div className="bg-[#FF0022] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
-                  <div className="flex flex-col items-center text-white">
-                    <img src="" alt=" Icon" />
-                    <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
-                    <p className="pt-1 font-[500] text-[14px]">Late Today</p>
-                  </div>
-                </div>
-                <div className="bg-[#005D8F] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
-                  <div className="flex flex-col items-center text-white">
-                    <img src="" alt=" Icon" />
-                    <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
-                    <p className="pt-1 font-[500] text-[14px]">On Time Today</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+<div
+  className={`cursor-pointer flex items-center gap-3 p-2 rounded-t-lg ${
+    activeTab === "management" ? "font-bold text-blue-600 bg-white" : "bg-transparent"
+  }`}
+  onClick={() => setActiveTab("management")}
+>
+  <img src="" alt="User Icon" />
+  <p className="font-[500] text-[18px] md:text-[20px] text-[#636363]">
+    Management Dashboard
+  </p>
+</div>
 
-            {/* Attendance Summary Report */}
-            <div className="mt-6">
-              <p className="font-medium text-lg pb-3">Attendance Summary Report of the Day</p>
-              <div className="overflow-x-auto">
-                <table className="w-full border-separate border-spacing-0 bg-white p-4">
-                  <thead className="bg-[#D6D6D6]">
-                    <tr className="font-semibold text-gray-700 text-sm md:text-base">
-                      {["Department", "Total Employee", "Present", "Absent", "On Time", "Late", "On Leave"].map((heading, index) => (
-                        <th key={index} className="border-r border-gray-300 px-4 py-2 text-left">
-                          {heading}
-                        </th>
-                      ))}
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {Array.from({ length: 7 }).map((_, index) => (
-                      <tr key={index} className="bg-white text-gray-600 font-medium text-sm md:text-base">
-                        {Array.from({ length: 7 }).map((_, colIndex) => (
-                          <td key={colIndex} className="border-r border-gray-300 px-4 py-2">
-                            Row {index + 1}, Col {colIndex + 1}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </div>
 
+           
           </div>
 
+          {/* Dashboard Content (Both inside the same div) */}
+          <div className="mt-4 w-full">
+            {activeTab === "employee" && (
+              <div className="bg-white p-4 rounded-lg shadow-md">
+                <h2 className="text-xl font-bold text-gray-700">
+                  Employee Dashboard
+                </h2>
+                {/* Employee Dashboard Cards */}
+                <div className="grid grid-cols-[15%_30%_15%_15%_15%] gap-5 mt-4">
+                  <div className="bg-[#26B3FF] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
+                    <div className="flex flex-col items-center text-white">
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">15</h1>
+                      <p className="pt-1 font-[500] text-[14px]">Total Employee</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#24948A] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
+                    <div className="flex flex-col items-center text-white">
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
+                      <p className="pt-1 font-[500] text-[14px]">Present Today</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#FFD755] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
+                    <div className="flex flex-col items-center text-white">
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">15</h1>
+                      <p className="pt-1 font-[500] text-[14px]">Absent Today</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#FF0022] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
+                    <div className="flex flex-col items-center text-white">
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
+                      <p className="pt-1 font-[500] text-[14px]">Late Today</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#005D8F] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
+                    <div className="flex flex-col items-center text-white">
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
+                      <p className="pt-1 font-[500] text-[14px]">On Time Today</p>
+                    </div>
+                  </div>
+                </div>
+
+                {/* Attendance Summary Report */}
+                <div className="mt-6">
+                  <p className="font-medium text-lg pb-3">
+                    Attendance Summary Report of the Day
+                  </p>
+                  <div className="overflow-x-auto">
+                    <table className="w-full border-separate border-spacing-0 bg-white p-4">
+                      <thead className="bg-[#D6D6D6]">
+                        <tr className="font-semibold text-gray-700 text-sm md:text-base">
+                          {[
+                            "Department",
+                            "Total Employee",
+                            "Present",
+                            "Absent",
+                            "On Time",
+                            "Late",
+                            "On Leave",
+                          ].map((heading, index) => (
+                            <th
+                              key={index}
+                              className="border-r border-gray-300 px-4 py-2 text-left"
+                            >
+                              {heading}
+                            </th>
+                          ))}
+                        </tr>
+                      </thead>
+                      <tbody>
+                        {Array.from({ length: 7 }).map((_, index) => (
+                          <tr
+                            key={index}
+                            className="bg-white text-gray-600 font-medium text-sm md:text-base"
+                          >
+                            {Array.from({ length: 7 }).map((_, colIndex) => (
+                              <td
+                                key={colIndex}
+                                className="border-r border-gray-300 px-4 py-2"
+                              >
+                                Row {index + 1}, Col {colIndex + 1}
+                              </td>
+                            ))}
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Management Dashboard */}
+            {activeTab === "management" && (
+              <div className="p-4 bg-[#dbf2ff]">
+            
+              {/* Dashboard Header */}
+
+
+              
+  
+              {/* Attendance Section */}
+              <div className="bg-white p-4 rounded-xl">
+                <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-4 items-center">
+                  
+                  {/* Attendance Buttons */}
+                  <div className="flex flex-wrap gap-2 md:gap-4">
+                    {["3 Days", "7 Days", "15 Days", "1 Month", "2 Months"].map((day, index) => (
+                      <div key={index} className="bg-[#A4DFFF] px-4 py-2 rounded-xl font-[400] text-[14px] md:text-[15px]">
+                        <p>{day}</p>
+                      </div>
+                    ))}
+                  </div>
+  
+                  {/* Date Picker & Show Button */}
+                  <div className="flex flex-wrap justify-end gap-2 md:gap-4">
+                    <input
+                      type="date"
+                      className="border border-[#D6D6D6] py-1 px-2 text-[#818181] text-[14px] md:text-[15px] rounded"
+                      value={fromDate}
+                      onChange={(e) => setFromDate(e.target.value)}
+                    />
+                    <input
+                      type="date"
+                      className="border border-[#D6D6D6] py-1 px-2 text-[#818181] text-[14px] md:text-[15px] rounded"
+                      value={toDate}
+                      onChange={(e) => setToDate(e.target.value)}
+                    />
+                    <button className="bg-[#00A6FF] px-4 py-2 text-white rounded-xl font-medium">
+                      Show
+                    </button>
+                  </div>
+                </div>
+              </div>
+  
+              {/* Profile & Additional Section */}
+             <ManagmentDashboard />
+  
+            </div>
+            )}
+          </div>
+        </div>
       </section>
     </>
   );
