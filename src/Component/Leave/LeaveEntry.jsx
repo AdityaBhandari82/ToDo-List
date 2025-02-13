@@ -117,6 +117,7 @@ function LeaveEntry() {
             
             
           </div>
+          
         </div>
       </section>
     </>
