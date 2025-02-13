@@ -40,11 +40,15 @@ import AllowanceDeductionTypes from './Component/Payroll/AllowanceDeductionTypes
 import AllowanceDeduction from './Component/Payroll/AllowanceDeduction';
 import PayrollFinalReport from './Component/Payroll/PayrollFinalReport';
 import PayrollPublish from './Component/Payroll/PayrollPublish';
+<<<<<<< HEAD
 import Department from './Component/EmployeeMangement/Department';
 import Designation from './Component/EmployeeMangement/Designation';
 import ManagementLayout from './Pages/ManagementLayout';
 import OrganisationStructure from './Component/Management/OrganisationStructure';
 import PaysSip from './Component/Attendance/PaysSip';
+=======
+import PayrollPublishedReport from './Component/Payroll/PayrollPublishedReport';
+>>>>>>> deep
 function App() {
  
   const router = createBrowserRouter([
@@ -204,6 +208,10 @@ function App() {
         },{
           path:"/payroll/payroll_publish",
           element:<PayrollPublish/>
+        },
+        {
+          path:"/payroll/payroll_publish_report",
+          element:<PayrollPublishedReport/>
         }
       ]
     },{
