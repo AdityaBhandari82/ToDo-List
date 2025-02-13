@@ -88,7 +88,9 @@ function Sidebar() {
       {name:"Department", path:"/employeemanagement/department"},
       {name:"Designation", path:"/employeemanagement/designation"},
     ] },
-    { name: "Management", icon: employee, path: "/management" },
+    { name: "Management", icon: employee, path: "/management",subMenu:[
+      {name:"Organisation Structire", path:"/management/organisation_struture"}
+    ] },
     { name: "Performance Management", icon: performance, path: "/performancemanagement" },
     { name: "Report", icon: report, path: "/report" }
   ];

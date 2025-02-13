@@ -24,6 +24,8 @@ import HrEntryStatus from './Component/Hrreport/HrEntryStatus';
 import ArrearsReport from './Component/Hrreport/ArrearsReport';
 import AttendanceDetailReport from './Component/Hrreport/AttendanceDetailReport';
 import SettingLayout from './Pages/SettingLayout';
+import EmployeeInfo from './Component/EmployeeMangement/EmployeeInfo';
+import EmpployeeManagementLayout from './Pages/EmployeeMageLayout';
 import Location from './Component/GenrealSetting/Location';
 import SecurityRole from './Component/GenrealSetting/SecurityRole';
 import GazettedHoliday from './Component/GenrealSetting/GazettedHoliday';
@@ -38,6 +40,11 @@ import AllowanceDeductionTypes from './Component/Payroll/AllowanceDeductionTypes
 import AllowanceDeduction from './Component/Payroll/AllowanceDeduction';
 import PayrollFinalReport from './Component/Payroll/PayrollFinalReport';
 import PayrollPublish from './Component/Payroll/PayrollPublish';
+import Department from './Component/EmployeeMangement/Department';
+import Designation from './Component/EmployeeMangement/Designation';
+import ManagementLayout from './Pages/ManagementLayout';
+import OrganisationStructure from './Component/Management/OrganisationStructure';
+import PaysSip from './Component/Attendance/PaysSip';
 function App() {
  
   const router = createBrowserRouter([
@@ -74,6 +81,9 @@ function App() {
         {
           path:"setting/leaveEnttitlement",
           element:<LeaveEntitlement/>
+        },{
+          path:"/attendance/pay-slip",
+          element:<PaysSip/>
         }
       ]
     },
@@ -194,6 +204,31 @@ function App() {
         },{
           path:"/payroll/payroll_publish",
           element:<PayrollPublish/>
+        }
+      ]
+    },{
+      path:"/employeemanagement",
+      element:<EmpployeeManagementLayout/>,
+      children:[
+        {
+          path:"/employeemanagement/employee_info",
+          element:<EmployeeInfo/>
+        },{
+          path:"/employeemanagement/department",
+          element:<Department/>
+        },{
+          path:"/employeemanagement/designation",
+          element:<Designation/>
+        }
+      ]
+
+    },{
+      path:"/management",
+      element:<ManagementLayout/>,
+      children:[
+        {
+        path:"/management/organisation_struture",
+        element:<OrganisationStructure/>
         }
       ]
     }

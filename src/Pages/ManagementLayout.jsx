@@ -1,7 +1,7 @@
 import React from 'react'
 import Sidebar from '../Component/Sidebar'
-import Employee from '../Component/EmployeeMangement/Employee'
-import Management from '../Component/Management/Management'
+import { Outlet } from 'react-router-dom'
+
 
 function Managementpage() {
   return (
@@ -11,7 +11,7 @@ function Managementpage() {
                 {<Sidebar />}
             </div>
             <div className='w-9/12'>
-                <Management/>
+                <Outlet/>
             </div>
         </div>
     
