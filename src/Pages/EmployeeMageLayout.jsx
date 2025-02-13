@@ -1,10 +1,8 @@
 import React from 'react'
 import Sidebar from '../Component/Sidebar'
 
+import { Outlet } from 'react-router-dom'
 
-import Payroll from '../Component/Payroll/Payroll'
-import Shift from '../Component/Shiftsetup/Shift'
-import Employee from '../Component/EmployeeMangement/Employee'
 
 function Employeepage() {
   return (
@@ -14,7 +12,7 @@ function Employeepage() {
                 {<Sidebar />}
             </div>
             <div className='w-9/12'>
-                <Employee/>
+                <Outlet/>
             </div>
         </div>
     
