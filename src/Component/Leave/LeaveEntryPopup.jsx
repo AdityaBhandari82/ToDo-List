@@ -237,6 +237,7 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
             </button>
             <button
           //  onClick={() => setIsOpen(true)}
+           onClick={handleSubmit}
               className="w-full sm:w-auto px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition disabled:opacity-50"
               disabled={!leaveType || !leavePeriod || !fromDate || !toDate || dateError}
             >

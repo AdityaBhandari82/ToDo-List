@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import icon from "../Payroll/Print.png";
+import Header from '../Header';
 
 const PayrollPublishedReport = () => {
   const [filters, setFilters] = useState({
@@ -28,6 +29,8 @@ const PayrollPublishedReport = () => {
   };
 
   return (
+    <section className='bg-sky-100 flex flex-col w-full'>
+      <Header />
     <div className="min-h-screen bg-blue-50 p-5">
       <h1 className="text-2xl font-semibold mb-6">Payroll Monthly Published Report</h1>
 
@@ -99,6 +102,7 @@ const PayrollPublishedReport = () => {
         )} */}
       </div>
     </div>
+    </section>
   );
 };
 

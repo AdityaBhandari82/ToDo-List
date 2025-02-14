@@ -45,7 +45,7 @@ const AttendanceSummary = () => {
 
     return (
         <>
-            <section className="bg-sky-100 flex flex-col w-full h-screen">
+            <section className="bg-sky-100 flex flex-col w-full ">
                 <Header />
                 <div className=" p-5 bg-blue-50 min-h-screen">
                     <h2 className="text-2xl font-semibold mb-6">Attendance Summary Report</h2>
