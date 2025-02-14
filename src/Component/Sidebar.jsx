@@ -73,6 +73,7 @@ function Sidebar() {
     },
     { name: "Payroll", icon: payroll, path: "/payroll",subMenu:[
       {name:"Payroll Months", path:"/payroll/payroll_months"},
+      {name:"Payroll Setup", path:"/payroll/payroll_setup"},
       {name:"Allowance Deduction Types", path:"/payroll/allowance_deduction_types"},
       {name:"Allowance Deduction", path:"/payroll/allowance_deduction"},
       {name:"Payroll Final Report", path:"/payroll/payroll_final_report"},
@@ -81,6 +82,7 @@ function Sidebar() {
     ] },
     { name: "Shift Setup", icon: shift, path: "/shiftsetup",subMenu:[
       {name:"Create Shift", Path:"/shiftSettup/create_shift"},
+      {name:"Create Shift", path:"/shiftsetup/create_shift"},
       {name:"Assign Shift Employee", path:"/shiftsetup/assign_shift_employee"},
     ] },
     { name: "Employee Management", icon: management, path: "/employeemanagement",subMenu:[
@@ -88,7 +90,9 @@ function Sidebar() {
       {name:"Department", path:"/employeemanagement/department"},
       {name:"Designation", path:"/employeemanagement/designation"},
     ] },
-    { name: "Management", icon: employee, path: "/management" },
+    { name: "Management", icon: employee, path: "/management",subMenu:[
+      {name:"Organisation Structire", path:"/management/organisation_struture"}
+    ] },
     { name: "Performance Management", icon: performance, path: "/performancemanagement" },
     { name: "Report", icon: report, path: "/report" }
   ];
