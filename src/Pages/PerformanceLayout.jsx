@@ -1,8 +1,8 @@
 import React from 'react'
 import Sidebar from '../Component/Sidebar'
-import PerforMange from '../Component/Performance/PerforMange'
+import {Outlet} from "react-router-dom"
 
-function Perfor_mangpage() {
+function PerformanceLayout() {
   return (
     <>
         <div className='flex flex-row bg-sky-100 w-full'>
@@ -10,7 +10,7 @@ function Perfor_mangpage() {
                 {<Sidebar />}
             </div>
             <div className='w-9/12'>
-                <PerforMange/>
+                <Outlet/>
             </div>
         </div>
     
@@ -18,7 +18,7 @@ function Perfor_mangpage() {
   )
 }
 
-export default Perfor_mangpage
+export default PerformanceLayout
 
 
 

@@ -90,9 +90,13 @@ function Sidebar() {
       {name:"Designation", path:"/employeemanagement/designation"},
     ] },
     { name: "Management", icon: employee, path: "/management",subMenu:[
-      {name:"Organisation Structire", path:"/management/organisation_struture"}
+      {name:"Organisation Structure", path:"/management/organisation_struture"}
     ] },
-    { name: "Performance Management", icon: performance, path: "/performancemanagement" },
+    { name: "Performance ", icon: performance, path: "/performance",subMenu:[
+      {name:"Performance Template", path:"/performance/performance_template"},
+      {name:"Performance Entry", path:"/performance/performance_entry"},
+      {name:"performance Report", path:"/performance/performance_report"}
+    ] },
     { name: "Report", icon: report, path: "/report" }
   ];
 

@@ -3,7 +3,7 @@ import Sidebar from '../Component/Sidebar'
 import { Outlet } from 'react-router-dom'
 
 
-function Managementpage() {
+function ManagementLayout() {
   return (
     <>
         <div className='flex flex-row bg-sky-100 w-full'>
@@ -19,7 +19,7 @@ function Managementpage() {
   )
 }
 
-export default Managementpage
+export default ManagementLayout
 
 
 
