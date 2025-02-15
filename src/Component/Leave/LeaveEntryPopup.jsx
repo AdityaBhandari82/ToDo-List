@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Calendar, X } from 'lucide-react';
 
+
 const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) => {
   const [leaveType, setLeaveType] = useState('');
   const [leavePeriod, setLeavePeriod] = useState('');
@@ -8,6 +9,7 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
   const [toDate, setToDate] = useState('');
   const [remarks, setRemarks] = useState('');
   const [dateError, setDateError] = useState('');
+  
 
   // Predefined leave types
   const leaveTypes = [
@@ -234,12 +236,17 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
               Close
             </button>
             <button
-              onClick={handleSubmit}
+          //  onClick={() => setIsOpen(true)}
+           onClick={handleSubmit}
               className="w-full sm:w-auto px-6 py-2 bg-green-600 text-white rounded-md hover:bg-green-700 transition disabled:opacity-50"
               disabled={!leaveType || !leavePeriod || !fromDate || !toDate || dateError}
             >
               Submit
             </button>
+            {/* <LeaveRequestPopup  //button for popup
+                    isOpen={isOpen}
+                    onClose={() => setIsOpen(false)}
+                /> */}
           </div>
         </div>
       </div>
@@ -248,3 +255,20 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
 };
 
 export default LeaveEntryPopup;
+
+{/* <div>
+                {/* Button to trigger the popup */}
+                // <button
+                //     onClick={() => setIsOpen(true)}
+                //     className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
+                // >
+                //     Add 
+                // </button>
+
+                // <LeaveEntryPopup
+                //     isOpen={isOpen}
+                //     onClose={() => setIsOpen(false)}
+                // />
+           // </div> */}
+
+          //  const [isOpen, setIsOpen] = useState(false);

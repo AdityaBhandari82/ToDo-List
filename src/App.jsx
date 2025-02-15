@@ -53,6 +53,10 @@ import PerformanceLayout from "./Pages/PerformanceLayout";
 import PerformanceEntry from "./Component/Performance/PerformanceEntry";
 import PerformanceReport from "./Component/Performance/PerformanceReport";
 import PerformanceTemplate from "./Component/Performance/PerformanceTemplate";
+import EmployeeContact from "./Component/EmployeeMangement/EMployeeContact";
+import EmployeeProfile from "./Component/EmployeeMangement/EmployeeProfile";
+import ReportLayout from "./Pages/ReportLayout"
+import Report from "./Component/Report/Report"
 function App() {
 
   const router = createBrowserRouter([
@@ -123,11 +127,7 @@ function App() {
         {
           path: "/approval/hr_approval",
           element: <HrApproval />,
-        },
-        {
-          path: "/approval/cod_approval",
-          element: <CODApproval />,
-        },
+        }
       ],
     },
 
@@ -139,22 +139,6 @@ function App() {
         {
           path: "/hrreport/hr_attendance_report",
           element: <Hrattendancereport />,
-        },
-        {
-          path: "/hrreport/hr_leave_balance",
-          element: <HrLeaveBalance />,
-        },
-        {
-          path: "/hrreport/arrears_report",
-          element: <ArrearsReport />,
-        },
-        {
-          path: "/hrreport/hr_entry_status",
-          element: <HrEntryStatus />,
-        },
-        {
-          path: "/hrreport/leave_report",
-          element: <LeaveReport />,
         },
         {
           path: "/hrreport/attendance_deatil_report",
@@ -252,6 +236,14 @@ function App() {
         element: <EmployeeInfo />
         },
         {
+          path: "/employeemanagement/employee_contact", // ❌ Remove the leading "/"
+          element: <EmployeeContact />
+        },
+        {
+          path: "/employeemanagement/employee_profile", // ❌ Remove the leading "/"
+          element: <EmployeeProfile />
+        },
+        {
           path: "/employeemanagement/department",
         element: <Department/>
         },
@@ -286,7 +278,15 @@ function App() {
             path: "/performance/performance_report",
             element: <PerformanceReport/>
           }
-    ]}
+    ]},
+    {
+      path: "/report",
+      element: <ReportLayout />,
+      children: [
+        {
+          path: "/report", 
+          element: <Report />
+        }]}
   ]);
 
   return <RouterProvider router={router} />;
