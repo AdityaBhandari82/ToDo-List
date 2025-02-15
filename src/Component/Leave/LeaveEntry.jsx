@@ -13,7 +13,7 @@ function LeaveEntry() {
     reportType: ''
   });
 
- 
+  const [showPayroll, setShowPayroll] = useState(false);
   const [selectedDepartment, setSelectedDepartment] = useState('');
   const [fromDate, setFromDate] = useState('From Date');
   const [toDate, setToDate] = useState('');

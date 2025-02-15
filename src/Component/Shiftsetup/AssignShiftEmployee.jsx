@@ -1,7 +1,7 @@
 import React from 'react';
 import Header from '../Header';
 
-function OrganisationStructure() {
+function AssignShiftEmployee() {
   return (
     <>
       <section className="bg-sky-100 flex flex-col w-full h-screen">
@@ -14,8 +14,7 @@ function OrganisationStructure() {
   );
 }
 
-export default OrganisationStructure;
- 
+export default AssignShiftEmployee;
 
 
 

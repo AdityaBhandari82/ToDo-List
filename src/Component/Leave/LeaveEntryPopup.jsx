@@ -2,6 +2,7 @@ import React, { useState, useEffect, useCallback } from 'react';
 import { Calendar, X } from 'lucide-react';
 import LeaveRequestPopup from './LeaveRequestPopup';
 
+
 const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) => {
   const [leaveType, setLeaveType] = useState('');
   const [leavePeriod, setLeavePeriod] = useState('');
