@@ -1,9 +1,9 @@
 import React from 'react'
 import Sidebar from '../Component/Sidebar'
-import Employee from '../Component/EmployeeMangement/Employee'
-import Management from '../Component/Management/Management'
+import { Outlet } from 'react-router-dom'
 
-function Managementpage() {
+
+function ManagementLayout() {
   return (
     <>
         <div className='flex flex-row bg-sky-100 w-full'>
@@ -11,7 +11,7 @@ function Managementpage() {
                 {<Sidebar />}
             </div>
             <div className='w-9/12'>
-                <Management/>
+                <Outlet/>
             </div>
         </div>
     
@@ -19,7 +19,7 @@ function Managementpage() {
   )
 }
 
-export default Managementpage
+export default ManagementLayout
 
 
 

@@ -3,9 +3,10 @@ import Header from "../Header";
 import { useState } from "react";
 import Delete from "./images/delete1.png";
 import Edit from "./images/edit1.png";
+import SetupPopup from "../../Pages/CreateShiftModel";
 
 function CreateShift() {
-  const [isPopupOpen, setPopupOpen] = useState(false);
+  const [isPopupOpen, setIsPopupOpen] = useState(false);
 
   return (
     <>
@@ -49,8 +50,11 @@ function CreateShift() {
               </div>
               <div className="flex flex-col md:flex-row my-3 items-stretch h-full overflow-hidden bg-sky-200">
                 <div className="p-2 md:p-1 lg:p-1 flex-1 ml-4 md:ml-1">
-                  <img src={Edit} alt="Edit" width="24" height="24" />
+                  <img 
+                   onClick={() => setIsPopupOpen(true)}
+                  src={Edit} alt="Edit" width="24" height="24" />
                 </div>
+                {isPopupOpen && <SetupPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />}
                 <div className="p-2 md:p-1 lg:p-1 flex-1 ml-4 md:ml-1">
                   <img src={Delete} alt="Delete" width="16" height="18" />
                 </div>
@@ -65,10 +69,10 @@ function CreateShift() {
               </div>
               <div className="flex flex-col md:flex-row my-3 divide-y md:divide-y-0 md:divide-x-2 divide-gray-300 items-stretch h-full overflow-hidden">
                 <div className="px-2 py-1 mt-2 flex-[0.5]">
-                  <EditIcon />
+                  {/* <EditIcon /> */}
                 </div>
                 <div className="px-3 py-1 flex-[0.5] mt-2">
-                  <DeleteIcon />
+                  {/* <DeleteIcon /> */}
                 </div>
                 <div className="p-2 flex-1">Shift-1</div>
                 <div className="p-2 flex-1">9:00 AM</div>
@@ -84,7 +88,7 @@ function CreateShift() {
         </section>
 
         {/* Popup Component */}
-        <ShiftPop isOpen={isPopupOpen} onClose={() => setPopupOpen(false)} />
+        {/* <ShiftPop isOpen={isPopupOpen} onClose={() => setPopupOpen(false)} /> */}
       </section>
     </>
   );

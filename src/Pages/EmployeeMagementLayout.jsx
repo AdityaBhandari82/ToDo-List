@@ -1,20 +1,19 @@
 import React from 'react'
 import Sidebar from '../Component/Sidebar'
 
+import { Outlet } from 'react-router-dom'
 
-import Payroll from '../Component/Payroll/Payroll'
-import Shift from '../Component/Shiftsetup/Shift'
-import Employee from '../Component/EmployeeMangement/Employee'
 
-function Employeepage() {
+function EmployeeMagementLayout() {
   return (
+
     <>
         <div className='flex flex-row bg-sky-100 w-full'>
             <div className='w-3/12'>
                 {<Sidebar />}
             </div>
             <div className='w-9/12'>
-                <Employee/>
+                <Outlet/>
             </div>
         </div>
     
@@ -22,7 +21,7 @@ function Employeepage() {
   )
 }
 
-export default Employeepage
+export default EmployeeMagementLayout
 
 
 

@@ -2,7 +2,6 @@ import React from "react";
 import Header from "../Header";
 import pdf from "./images/pdf1.png";
 import show2 from "./images/show2.png";
-
 function PayrollPublishedReport() {
   return (
     <>
@@ -90,6 +89,6 @@ function PayrollPublishedReport() {
       </section>
     </>
   );
-}
+};
 
 export default PayrollPublishedReport;
