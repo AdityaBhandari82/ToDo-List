@@ -3,6 +3,8 @@ import { Link } from "react-router-dom";
 import { GoHome } from "react-icons/go";
 import { FaRegUser } from "react-icons/fa";
 import ManagmentDashboard from "./ManagmentDashboard";
+import homeIcon from "../Image/homeIcon.png"
+import userProfileIcon from "../Image/userProfileIcon.png"
 
 function Home() {
   const [toDate, setToDate] = useState("");
@@ -25,36 +27,62 @@ function Home() {
         </div>
 
         {/* Main Content */}
-        <div className="bg-[#dbf2ff] p-4 w-full flex flex-col">
+        <div className="bg-[#dbf2ff] p-4  flex flex-col ">
           {/* Tabs */}
-          <div className="flex flex-wrap gap-4  border-[#D3D3D3] ">
-          <div
-  className={`cursor-pointer flex items-center gap-3 p-2 rounded-t-lg ${
-    activeTab === "employee" ? "font-bold text-blue-600 bg-white" : "bg-transparent"
+          <div className="grid grid-cols-[31%_auto]  border-[#D3D3D3] ">
+  {/* Employee Dashboard Tab */}
+{/* Employee Dashboard Tab */}
+<div
+  className={`cursor-pointer flex items-center gap-3 p-2 border-r border-[#D3D3D3] ${
+    activeTab === "employee"
+      ? "font-[500] text-[20px] text-[#636363] bg-white border-[1px] border-b-0"
+      : "bg-transparent text-[#0091DF] border-b-[1px]"
   }`}
   onClick={() => setActiveTab("employee")}
 >
-  <img src="" alt="Home Icon" />
-  <p className="font-[500] text-[18px] md:text-[20px] text-[#636363]">
+  <img
+    src={homeIcon}
+    alt="Home Icon"
+    className={`w-[16px] transition-all duration-300 ${
+      activeTab === "employee" ? "text-[#636363]" : "text-[#0091DF]"
+    }`}
+  />
+  <p
+    className={`font-[500] text-[18px] md:text-[20px] ${
+      activeTab === "employee" ? "text-[#636363]" : "text-[#0091DF]"
+    }`}
+  >
     Employee Dashboard
   </p>
 </div>
 
+{/* Management Dashboard Tab */}
 <div
-  className={`cursor-pointer flex items-center gap-3 p-2 rounded-t-lg ${
-    activeTab === "management" ? "font-bold text-blue-600 bg-white" : "bg-transparent"
+  className={`cursor-pointer flex items-center gap-3 p-2 ${
+    activeTab === "management"
+      ? "font-[500] text-[20px] text-blue-600 bg-white border border-b-0 border-[#D3D3D3]"
+      : "text-[#0091DF] border-b-[1px] border-[#D3D3D3]"
   }`}
   onClick={() => setActiveTab("management")}
 >
-  <img src="" alt="User Icon" />
-  <p className="font-[500] text-[18px] md:text-[20px] text-[#636363]">
+  <img
+    src={userProfileIcon}
+    alt="User Icon"
+    className={`w-[16px] transition-all duration-300 ${
+      activeTab === "management" ? "text-[#636363]" : "text-[#0091DF]"
+    }`}
+  />
+  <p
+    className={`font-[500] text-[18px] md:text-[20px] ${
+      activeTab === "management" ? "text-[#636363]" : "text-[#0091DF]"
+    }`}
+  >
     Management Dashboard
   </p>
 </div>
 
+</div>
 
-           
-          </div>
 
           {/* Dashboard Content (Both inside the same div) */}
           <div className="mt-4 w-full">
@@ -67,32 +95,50 @@ function Home() {
                 <div className="grid grid-cols-[15%_30%_15%_15%_15%] gap-5 mt-4">
                   <div className="bg-[#26B3FF] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
                     <div className="flex flex-col items-center text-white">
-                      <h1 className="pt-4 font-[500] text-[18px] text-center">15</h1>
-                      <p className="pt-1 font-[500] text-[14px]">Total Employee</p>
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">
+                        15
+                      </h1>
+                      <p className="pt-1 font-[500] text-[14px]">
+                        Total Employee
+                      </p>
                     </div>
                   </div>
                   <div className="bg-[#24948A] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
                     <div className="flex flex-col items-center text-white">
-                      <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
-                      <p className="pt-1 font-[500] text-[14px]">Present Today</p>
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">
+                        0
+                      </h1>
+                      <p className="pt-1 font-[500] text-[14px]">
+                        Present Today
+                      </p>
                     </div>
                   </div>
                   <div className="bg-[#FFD755] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
                     <div className="flex flex-col items-center text-white">
-                      <h1 className="pt-4 font-[500] text-[18px] text-center">15</h1>
-                      <p className="pt-1 font-[500] text-[14px]">Absent Today</p>
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">
+                        15
+                      </h1>
+                      <p className="pt-1 font-[500] text-[14px]">
+                        Absent Today
+                      </p>
                     </div>
                   </div>
                   <div className="bg-[#FF0022] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
                     <div className="flex flex-col items-center text-white">
-                      <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">
+                        0
+                      </h1>
                       <p className="pt-1 font-[500] text-[14px]">Late Today</p>
                     </div>
                   </div>
                   <div className="bg-[#005D8F] flex flex-col items-center justify-center pt-9 pb-7 rounded-2xl">
                     <div className="flex flex-col items-center text-white">
-                      <h1 className="pt-4 font-[500] text-[18px] text-center">0</h1>
-                      <p className="pt-1 font-[500] text-[14px]">On Time Today</p>
+                      <h1 className="pt-4 font-[500] text-[18px] text-center">
+                        0
+                      </h1>
+                      <p className="pt-1 font-[500] text-[14px]">
+                        On Time Today
+                      </p>
                     </div>
                   </div>
                 </div>
@@ -150,50 +196,53 @@ function Home() {
             {/* Management Dashboard */}
             {activeTab === "management" && (
               <div className="p-4 bg-[#dbf2ff]">
-            
-              {/* Dashboard Header */}
+                {/* Dashboard Header */}
 
+                {/* Attendance Section */}
+                <div className="bg-white p-4 rounded-xl">
+                  <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-4 items-center">
+                    {/* Attendance Buttons */}
+                    <div className="flex flex-wrap gap-2 md:gap-4">
+                      {[
+                        "3 Days",
+                        "7 Days",
+                        "15 Days",
+                        "1 Month",
+                        "2 Months",
+                      ].map((day, index) => (
+                        <div
+                          key={index}
+                          className="bg-[#A4DFFF] px-4 py-2 rounded-xl font-[400] text-[14px] md:text-[15px]"
+                        >
+                          <p>{day}</p>
+                        </div>
+                      ))}
+                    </div>
 
-              
-  
-              {/* Attendance Section */}
-              <div className="bg-white p-4 rounded-xl">
-                <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-4 items-center">
-                  
-                  {/* Attendance Buttons */}
-                  <div className="flex flex-wrap gap-2 md:gap-4">
-                    {["3 Days", "7 Days", "15 Days", "1 Month", "2 Months"].map((day, index) => (
-                      <div key={index} className="bg-[#A4DFFF] px-4 py-2 rounded-xl font-[400] text-[14px] md:text-[15px]">
-                        <p>{day}</p>
-                      </div>
-                    ))}
-                  </div>
-  
-                  {/* Date Picker & Show Button */}
-                  <div className="flex flex-wrap justify-end gap-2 md:gap-4">
-                    <input
-                      type="date"
-                      className="border border-[#D6D6D6] py-1 px-2 text-[#818181] text-[14px] md:text-[15px] rounded"
-                      value={fromDate}
-                      onChange={(e) => setFromDate(e.target.value)}
-                    />
-                    <input
-                      type="date"
-                      className="border border-[#D6D6D6] py-1 px-2 text-[#818181] text-[14px] md:text-[15px] rounded"
-                      value={toDate}
-                      onChange={(e) => setToDate(e.target.value)}
-                    />
-                    <button className="bg-[#00A6FF] px-4 py-2 text-white rounded-xl font-medium">
-                      Show
-                    </button>
+                    {/* Date Picker & Show Button */}
+                    <div className="flex flex-wrap justify-end gap-2 md:gap-4">
+                      <input
+                        type="date"
+                        className="border border-[#D6D6D6] py-1 px-2 text-[#818181] text-[14px] md:text-[15px] rounded"
+                        value={fromDate}
+                        onChange={(e) => setFromDate(e.target.value)}
+                      />
+                      <input
+                        type="date"
+                        className="border border-[#D6D6D6] py-1 px-2 text-[#818181] text-[14px] md:text-[15px] rounded"
+                        value={toDate}
+                        onChange={(e) => setToDate(e.target.value)}
+                      />
+                      <button className="bg-[#00A6FF] px-4 py-2 text-white rounded-xl font-medium">
+                        Show
+                      </button>
+                    </div>
                   </div>
                 </div>
+
+                {/* Profile & Additional Section */}
+                <ManagmentDashboard />
               </div>
-  
-              {/* Profile & Additional Section */}
-             <ManagmentDashboard />
-  
-            </div>
             )}
           </div>
         </div>

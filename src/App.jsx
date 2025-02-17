@@ -1,7 +1,7 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import React from "react";
 import LeaveEntitlement from "./Component/GenrealSetting/LeaveEntitle";
-<<<<<<< HEAD
+
 import MyAttendanceReport from './Component/Attendance/MyAttendanceReport';
 import Attendance from './Component/Attendance/Attendance';
 import AttendanceSummary from './Component/Attendance/AttendanceSummary';
@@ -41,58 +41,49 @@ import AllowanceDeductionTypes from './Component/Payroll/AllowanceDeductionTypes
 import AllowanceDeduction from './Component/Payroll/AllowanceDeduction';
 import PayrollFinalReport from './Component/Payroll/PayrollFinalReport';
 import PayrollPublish from './Component/Payroll/PayrollPublish';
-<<<<<<< HEAD
-import Department from './Component/EmployeeMangement/Department';
-import Designation from './Component/EmployeeMangement/Designation';
-import ManagementLayout from './Pages/ManagementLayout';
-import OrganisationStructure from './Component/Management/OrganisationStructure';
-import PaysSip from './Component/Attendance/PaysSip';
-=======
-import PayrollPublishedReport from './Component/Payroll/PayrollPublishedReport';
->>>>>>> deep
-=======
-import MyAttendanceReport from "./Component/Attendance/MyAttendanceReport";
-import Attendance from "./Component/Attendance/Attendance";
-import AttendanceSummary from "./Component/Attendance/AttendanceSummary";
-import Onlinepunch from "./Component/Attendance/Onlinepunch";
-import ApprovalStatus from "./Component/Attendance/ApprovalStatus";
-import Longtermloan from "./Component/Attendance/Longtermloan";
-import AttendanceLayout from "./Pages/AttendanceLayout";
-import DashboardLayout from "./Pages/DashboardLayout";
-import LeaveEntry from "./Component/Leave/LeaveEntry";
-import LeaveLayout from "./Pages/LeaveLayout";
-import LeaveBalance from "./Component/Leave/LeaveBalance";
-import ApprovalLayout from "./Pages/ApprovalLayout";
-import HrApproval from "./Component/Approval/HrApproval";
-import HodApproval from "./Component/Approval/HodApproval";
-import CODApproval from "./Component/Approval/CODApproval";
-import HrReportLayout from "./Pages/HrReportLayout";
-import Hrattendancereport from "./Component/hrreport/Hrattendancereport";
-import HrLeaveBalance from "./Component/Hrreport/HrLeaveBalance";
-import LeaveReport from "./Component/Hrreport/LeaveReport";
-import HrEntryStatus from "./Component/Hrreport/HrEntryStatus";
-import ArrearsReport from "./Component/Hrreport/ArrearsReport";
-import AttendanceDetailReport from "./Component/Hrreport/AttendanceDetailReport";
-import SettingLayout from "./Pages/SettingLayout";
-import Location from "./Component/GenrealSetting/Location";
-import SecurityRole from "./Component/GenrealSetting/SecurityRole";
-import GazettedHoliday from "./Component/GenrealSetting/GazettedHoliday";
-import LeaveEntitle from "./Component/GenrealSetting/LeaveEntitle";
 
-import ApprovalPolicy from "./Component/GenrealSetting/ApprovalPolicy";
-import EmailConfiguration from "./Component/GenrealSetting/EmailConfiguration";
-import PayrollLayout from "./Pages/PayrollLayout";
-import PayrollMonths from "./Component/Payroll/PayrollMonths";
-import PayrollSetup from "./Component/Payroll/PayrollSetup";
-import AllowanceDeductionTypes from "./Component/Payroll/AllowanceDeductionTypes";
-import AllowanceDeduction from "./Component/Payroll/AllowanceDeduction";
-import PayrollFinalReport from "./Component/Payroll/PayrollFinalReport";
-import PayrollPublish from "./Component/Payroll/PayrollPublish";
+// import MyAttendanceReport from "./Component/Attendance/MyAttendanceReport";
+// import Attendance from "./Component/Attendance/Attendance";
+// import AttendanceSummary from "./Component/Attendance/AttendanceSummary";
+// import Onlinepunch from "./Component/Attendance/Onlinepunch";
+// import ApprovalStatus from "./Component/Attendance/ApprovalStatus";
+// import Longtermloan from "./Component/Attendance/Longtermloan";
+// import AttendanceLayout from "./Pages/AttendanceLayout";
+// import DashboardLayout from "./Pages/DashboardLayout";
+// import LeaveEntry from "./Component/Leave/LeaveEntry";
+// import LeaveLayout from "./Pages/LeaveLayout";
+// import LeaveBalance from "./Component/Leave/LeaveBalance";
+// import ApprovalLayout from "./Pages/ApprovalLayout";
+// import HrApproval from "./Component/Approval/HrApproval";
+// import HodApproval from "./Component/Approval/HodApproval";
+// import CODApproval from "./Component/Approval/CODApproval";
+// import HrReportLayout from "./Pages/HrReportLayout";
+// import Hrattendancereport from "./Component/hrreport/Hrattendancereport";
+// import HrLeaveBalance from "./Component/Hrreport/HrLeaveBalance";
+// import LeaveReport from "./Component/Hrreport/LeaveReport";
+// import HrEntryStatus from "./Component/Hrreport/HrEntryStatus";
+// import ArrearsReport from "./Component/Hrreport/ArrearsReport";
+// import AttendanceDetailReport from "./Component/Hrreport/AttendanceDetailReport";
+// import SettingLayout from "./Pages/SettingLayout";
+// import Location from "./Component/GenrealSetting/Location";
+// import SecurityRole from "./Component/GenrealSetting/SecurityRole";
+// import GazettedHoliday from "./Component/GenrealSetting/GazettedHoliday";
+// import LeaveEntitle from "./Component/GenrealSetting/LeaveEntitle";
+
+// import ApprovalPolicy from "./Component/GenrealSetting/ApprovalPolicy";
+// import EmailConfiguration from "./Component/GenrealSetting/EmailConfiguration";
+// import PayrollLayout from "./Pages/PayrollLayout";
+// import PayrollMonths from "./Component/Payroll/PayrollMonths";
+// import PayrollSetup from "./Component/Payroll/PayrollSetup";
+// import AllowanceDeductionTypes from "./Component/Payroll/AllowanceDeductionTypes";
+// import AllowanceDeduction from "./Component/Payroll/AllowanceDeduction";
+// import PayrollFinalReport from "./Component/Payroll/PayrollFinalReport";
+// import PayrollPublish from "./Component/Payroll/PayrollPublish";
 import PayrollPublishedReport from "./Component/Payroll/PayrollPublishedReport";
 import CreateShift from "./Component/Shiftsetup/CreateShift";
 import ShiftLayout from "./Pages/ShiftLayout";
 
->>>>>>> trupti
+
 function App() {
   const router = createBrowserRouter([
     {
@@ -122,15 +113,6 @@ function App() {
           element: <AttendanceSummary />,
         },
         {
-<<<<<<< HEAD
-          path:"setting/leaveEnttitlement",
-          element:<LeaveEntitlement/>
-        },{
-          path:"/attendance/pay-slip",
-          element:<PaysSip/>
-        }
-      ]
-=======
           path: "/attendance/approvalstatus",
           element: <ApprovalStatus />,
         },
@@ -147,7 +129,6 @@ function App() {
           element: <LeaveEntitlement />,
         },
       ],
->>>>>>> trupti
     },
     //leave
     {
@@ -250,69 +231,6 @@ function App() {
       element: <PayrollLayout />,
       children: [
         {
-<<<<<<< HEAD
-          path:"/payroll/payroll_months",
-          element:<PayrollMonths/>
-        },{
-          path:"/payroll/allowance_setup",
-          element:<PayrollSetup/>
-        },{
-          path:"/payroll/allowance_deduction_types",
-          element:<AllowanceDeductionTypes/>  
-        },{
-          path:"/payroll/allowance_deduction",
-          element:<AllowanceDeduction/>
-        },{
-          path:"/payroll/payroll_final_report",
-          element:<PayrollFinalReport/>
-        },{
-          path:"/payroll/payroll_publish",
-          element:<PayrollPublish/>
-        },
-        {
-          path:"/payroll/payroll_publish_report",
-          element:<PayrollPublishedReport/>
-        }
-      ]
-    },{
-      path:"/employeemanagement",
-      element:<EmpployeeManagementLayout/>,
-      children:[
-        {
-          path:"/employeemanagement/employee_info",
-          element:<EmployeeInfo/>
-        },{
-          path:"/employeemanagement/department",
-          element:<Department/>
-        },{
-          path:"/employeemanagement/designation",
-          element:<Designation/>
-        }
-      ]
-
-    },{
-      path:"/management",
-      element:<ManagementLayout/>,
-      children:[
-        {
-        path:"/management/organisation_struture",
-        element:<OrganisationStructure/>
-        }
-      ]
-    },
-    {
-      path:"/shiftSettup",
-      element:<ShiftLayout />,
-      children:[{
-          path:'/shiftSettup/create_shift',
-          element:<SetupPopup />
-      }]
-    }
-   
-  ])
-  
-   
-=======
           path: "/payroll/payroll_months",
           element: <PayrollMonths />,
         },
@@ -353,7 +271,6 @@ function App() {
       ],
     },
   ]);
->>>>>>> trupti
 
   return <RouterProvider router={router} />;
 }
