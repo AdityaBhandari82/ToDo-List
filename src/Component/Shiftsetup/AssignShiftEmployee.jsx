@@ -1,22 +1,52 @@
-import React from 'react';
-import Header from '../Header';
+import React, { useState } from "react";
+import Header from "../Header";
+import BulkShiftPopup from "./BulkShiftPopup";
+import { Link } from 'react-router-dom';
 
-function AssignShiftEmployee() {
-  return (
-    <>
-      <section className="bg-sky-100 flex flex-col w-full h-screen">
-        <Header/>
+const AssignEmployeShift = () => {
+    const [department, setDepartment] = useState("");
+      const [isPopupOpen, setIsPopupOpen] = useState(false);
+    
 
-        <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Autem atque corrupti, provident asperiores obcaecati exercitationem quam, suscipit, voluptas dolorum aut pariatur! Facilis recusandae error, sit veniam omnis nesciunt quasi vitae.</div>
+    return (
+        <>
+            <Header />
+            <div className="p-6 bg-gradient-to-r from-blue-100 to-blue-200 min-h-screen">
+            <h2 className="text-lg font-semibold mb-4 ">Head Office Employee Shifts</h2>
 
-      </section>
-    </>
-  );
-}
+                <div className="bg-white shadow-md rounded-md p-6 w-full mx-auto">
 
-export default AssignShiftEmployee;
+                    {/* Dropdown and Buttons */}
+                    <div className="flex items-center space-x-4 mb-6 w-full">
+                        <select
+                            value={department}
+                            onChange={(e) => setDepartment(e.target.value)}
+                            className="border rounded-md p-2 w-9/12"
+                        >
+                            <option value="">Select Department</option>
+                            <option value="HR">HR</option>
+                            <option value="IT">IT</option>
+                            <option value="Finance">Finance</option>
+                        </select>
 
+                        <button className="bg-blue-500 text-white px-4 py-2 rounded-md">Show</button>
+                        <button onClick={() => setIsPopupOpen(true)} className="bg-blue-500 text-white px-4 py-2 rounded-md">
+                      Bulk Shift
+                      </button>
+                        </div>
 
+                    {/* Employee Shifts Section */}
+                   
+                </div>
+                <div className="bg-white max-w-3xl m-8 ml-16 my-4 p-2  rounded-sm ">
+                        <h3 className="font-semibold">Head Office Employee Shifts</h3>
+                        {/* Placeholder for shift data */}
+                    </div>
+            </div>
+            <BulkShiftPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
 
+        </>
+    );
+};
 
-
+export default AssignEmployeShift;
