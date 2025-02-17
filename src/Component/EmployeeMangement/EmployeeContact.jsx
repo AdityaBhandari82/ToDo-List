@@ -54,10 +54,10 @@ const EmployeeContact = () => {
           <div className="flex flex-wrap border-b pb-2 mb-4 gap-4 text-center">
             <Link to="/employeemanagement/employee_contact" className="text-blue-600 font-semibold">Employee Info</Link>
             <span className="font-semibold border-b-2 border-gray-600">Contact Info</span>
-            <span className="text-blue-600 font-semibold">Employment Info</span>
-            <span className="text-blue-600 font-semibold">Payroll</span>
-            <span className="text-blue-600 font-semibold">Security</span>
-            <span className="text-blue-600 font-semibold">Files</span>
+            <Link  to="/employeemanagement/employeement_info" className="text-blue-600 font-semibold" >Employment Info</Link>
+            <Link to="/employeemanagement/payroll" className="text-blue-600 font-semibold">Payroll</Link>
+            <Link to="/employeemanagement/security" className="text-blue-600 font-semibold">Security</Link>
+            <Link to="/employeemanagement/file" className="text-blue-600 font-semibold">Files</Link>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">

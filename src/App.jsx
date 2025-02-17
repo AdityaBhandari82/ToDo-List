@@ -49,7 +49,7 @@ import Designation from "./Component/EmployeeMangement/Designation";
 import ManagementLayout from "./Pages/ManagementLayout";
 import OrganisationStructure from "./Component/Management/OrganisationStructure";
 import PerformanceLayout from "./Pages/PerformanceLayout";
-
+import EmployeementInfo from "./Component/EmployeeMangement/EmployeementInfo"
 import PerformanceEntry from "./Component/Performance/PerformanceEntry";
 import PerformanceReport from "./Component/Performance/PerformanceReport";
 import PerformanceTemplate from "./Component/Performance/PerformanceTemplate";
@@ -57,6 +57,10 @@ import EmployeeContact from "./Component/EmployeeMangement/EMployeeContact";
 import EmployeeProfile from "./Component/EmployeeMangement/EmployeeProfile";
 import ReportLayout from "./Pages/ReportLayout"
 import Report from "./Component/Report/Report"
+import PaysSip from "./Component/Attendance/PaysSip";
+import Payroll from "./Component/EmployeeMangement/Payroll";
+import Security from "./Component/EmployeeMangement/Security";
+import File from "./Component/EmployeeMangement/File";
 function App() {
 
   const router = createBrowserRouter([
@@ -97,7 +101,10 @@ function App() {
         {
           path: "setting/leaveEnttitlement",
           element: <LeaveEntitlement />,
-        },
+        },{
+          path: "/attendance/pay-slip",
+          element: <PaysSip/>
+        }
       ],
     },
     //leave
@@ -242,6 +249,24 @@ function App() {
         {
           path: "/employeemanagement/employee_profile", // ❌ Remove the leading "/"
           element: <EmployeeProfile />
+        },{
+          
+          path: "/employeemanagement/employeement_info", // ❌ Remove the leading "/"
+          element: <EmployeementInfo />
+        },{
+          
+          path: "/employeemanagement/payroll", // ❌ Remove the leading "/"
+          element: <Payroll />
+        },
+        {
+          
+          path: "/employeemanagement/security", // ❌ Remove the leading "/"
+          element: <Security />
+        },
+        {
+          
+          path: "/employeemanagement/file", // ❌ Remove the leading "/"
+          element: <File />
         },
         {
           path: "/employeemanagement/department",

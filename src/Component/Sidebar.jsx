@@ -30,7 +30,7 @@ function Sidebar() {
         { name: "Attendance Summary", path: "/attendance/summary" },
         { name: "Approval Status Report", path: "/attendance/approvalstatus" },
         { name: "Online Punch", path: "/attendance/onlinepunch" },
-        { name: "Long Term Loan", path: "/attendance/longtermloan" },
+        // { name: "Long Term Loan", path: "/attendance/longtermloan" },
        
         { name: "My Pay Slip", path: "/attendance/pay-slip" },
       ]
