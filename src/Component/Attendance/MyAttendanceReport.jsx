@@ -20,7 +20,7 @@ function MyAttendanceReport() {
         
 
         <div className="bg-[#DBF2FF] p-6 rounded-lg min-h-screen">
-      <h1 className='font-[500] text-[18px] '>Employee Attendance Repor</h1>
+      <h1 className='font-[500] text-[18px] '>Employee Attendance Report</h1>
 
       <div className="bg-white p-4 rounded-lg grid grid-cols-[80%_auto] mt-8 gap-4 items-center">
   {/* Left section with inputs */}
