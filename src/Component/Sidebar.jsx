@@ -120,11 +120,13 @@ function Sidebar() {
   };
 
   const toggleDropdown = (name) => {
-    setExpandedItems(prev => ({ ...prev, [name]: !prev[name] }));
+    setExpandedItems(prev => ({
+      [name]: !prev[name] // Open the clicked submenu while closing all others
+    }));
   };
 
   return (
-    <footer className="flex flex-col overflow-hidden w-full h-screen bg-slate-700 text-white ">
+    <footer className="flex flex-col overflow-hidden w-full min-h-screen bg-slate-700 text-white ">
       <div className="flex flex-col h-full text-gray-300">
         <h2 className="text-3xl ml-10 mt-3">HRIS Demo</h2>
         <ul className="flex flex-col list-none mt-8 ml-6 text-sm gap-1">
