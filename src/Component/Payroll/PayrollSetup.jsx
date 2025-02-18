@@ -5,6 +5,7 @@ import Edit from "./images/edit1.png";
 
 function PayrollSetup() {
   const [showTable, setShowTable] = useState(false);
+  
 
   const handleShow = () => {
     setShowTable(true);

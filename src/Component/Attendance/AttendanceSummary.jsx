@@ -9,7 +9,7 @@ const AttendanceSummary = () => {
     const [fromDate, setFromDate] = useState('From Date');
     const [toDate, setToDate] = useState('');
     // const [attendanceData, setAttendanceData] = useState(null);
-    const [isOpen, setIsOpen] = useState(false);
+    
 
     // Sample employee data
     const employees = [
@@ -104,20 +104,7 @@ const AttendanceSummary = () => {
                     </div>
 
 
-                    <div>
-                        {/* Button to trigger the popup */}
-                        {/* <button
-                    onClick={() => setIsOpen(true)}
-                    className="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600"
-                >
-                    Add Missing Time Entry
-                </button>
-
-                <MissingTimePopup
-                    isOpen={isOpen}
-                    onClose={() => setIsOpen(false)}
-                /> */}
-                    </div>
+                   
 
 
                 </div>
