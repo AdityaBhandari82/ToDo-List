@@ -20,7 +20,7 @@ function SettingLayout() {
 
            
                  <Outlet/>
-              <div onClick={()=> setSelected("myattendancereport")}>{select === "myattendancereport"?  <MyAttendanceReport/>: ""}</div>
+              
             </div>
         </div>
     

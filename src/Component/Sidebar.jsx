@@ -139,22 +139,26 @@ function Sidebar() {
                 onClick={() => handleNavigation(item.path)}
               >
                 <div className="w-full flex flex-row justify-between">
-                  <div className="flex items-center">
-                    <img src={item.icon} alt={item.name} className="h-4 w-4 mr-2.5" />
-                    <p>{item.name}</p>
-                  </div>
-                  {item.subMenu && (
-                    <div
-                      className="pr-4 cursor-pointer"
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevents triggering handleNavigation
-                        toggleDropdown(item.name);
-                      }}
-                    >
-                      {expandedItems[item.name] ? <ChevronDown /> : <ChevronRight />}
-                    </div>
-                  )}
-                </div>
+  <div className="flex " onClick={(e) => {
+        e.stopPropagation();
+        toggleDropdown(item.name);
+      }}>
+    <img src={item.icon} alt={item.name} className="h-4 w-4 mr-2.5" />
+    <p >{item.name}</p>
+  </div>
+  {item.subMenu && (
+    <div
+      className="pr-4 cursor-pointer flex items-center"
+      onClick={(e) => {
+        e.stopPropagation();
+        toggleDropdown(item.name);
+      }}
+    >
+      {expandedItems[item.name] ? <ChevronDown /> : <ChevronRight />}
+    </div>
+  )}
+</div>
+
               </div>
 
               {/* ✅ Fix: Handle submenu navigation properly */}
