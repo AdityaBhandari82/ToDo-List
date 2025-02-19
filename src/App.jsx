@@ -121,11 +121,8 @@ function App() {
         {
           path: "/leave",
           element: <LeaveEntry />,
-        },
-        {
-          path: "/leave/balance",
-          element: <LeaveBalance />,
-        },
+        }
+        
       ],
     },
     //Aproval
