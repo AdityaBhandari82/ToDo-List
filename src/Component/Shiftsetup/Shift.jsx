@@ -15,7 +15,15 @@ function Shift() {
           </div>
         </div>
 
-        <h3>This is Leave page</h3>
+        <button
+            onClick={() => setIsPopupOpen(true)}
+            className="px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 mt-4"
+          >
+            Open Setup Popup
+          </button>
+
+          {/* SetupPopup component */}
+          {isPopupOpen && <SetupPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />}
 
       </section>
     </>

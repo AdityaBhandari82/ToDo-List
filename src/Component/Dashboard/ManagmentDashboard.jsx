@@ -49,6 +49,7 @@ function ManagmentDashboard() {
   };
 
   return (
+
     <div className="flex flex-col md:flex-row bg-sky-100 w-full min-h-screen">
       <div className="md:hidden p-4">
         <button className="bg-blue-500 text-white px-4 py-2 rounded" onClick={() => setIsSidebarOpen(!isSidebarOpen)}>
@@ -87,6 +88,9 @@ function ManagmentDashboard() {
         </div>
       </div>
     </div>
+
+    +
+    6
   );
 }
 

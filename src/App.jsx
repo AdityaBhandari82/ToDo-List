@@ -57,10 +57,12 @@ import EmployeeContact from "./Component/EmployeeMangement/EMployeeContact";
 import EmployeeProfile from "./Component/EmployeeMangement/EmployeeProfile";
 import ReportLayout from "./Pages/ReportLayout"
 import Report from "./Component/Report/Report"
+
+import 'react-toastify/dist/ReactToastify.css';
 import PaysSip from "./Component/Attendance/PaysSip";
 import Payroll from "./Component/EmployeeMangement/Payroll";
 import Security from "./Component/EmployeeMangement/Security";
-import File from "./Component/EmployeeMangement/File";
+import File from "./Component/EmployeeMangem
 function App() {
 
   const router = createBrowserRouter([
@@ -68,6 +70,10 @@ function App() {
       path: "/",
       element: <DashboardLayout />,
     },
+    // {
+    //     path:'managmentDashboard',
+    //     element:<ManagmentDashboard />
+    // },
     //attendance
     {
       path: "/attendance",

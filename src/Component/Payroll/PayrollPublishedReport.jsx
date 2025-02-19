@@ -15,7 +15,7 @@ function PayrollPublishedReport() {
             </h1>
           </div>
           {/* 1st Container */}
-          <div className=" text-gray-600 flex flex-col md:flex-row gap-3 mb-8 bg-white rounded-lg p-4 items-center overflow-hidden">
+          <div className="text-gray-600 flex flex-col md:flex-row gap-3 mb-8 bg-white rounded-lg p-4 items-center overflow-hidden">
             <input
               type="text"
               className="px-3 py-1 border rounded w-full md:w-1/7"
@@ -45,7 +45,7 @@ function PayrollPublishedReport() {
               Show
             </button>
             <div className="bg-gray-300 rounded p-1">
-              <img src={show2} width="16" height="20" />
+              <img src={show2} width="16" height="20" alt="Show Icon" />
             </div>
           </div>
 
@@ -73,6 +73,7 @@ function PayrollPublishedReport() {
                     width="25"
                     height="25"
                     className="ml-4 bg-gray-300 rounded p-1"
+                    alt="PDF Icon"
                   />
                 </div>
                 <div className="p-2 flex-1">4563</div>
