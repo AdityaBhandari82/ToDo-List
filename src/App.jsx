@@ -62,7 +62,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import PaysSip from "./Component/Attendance/PaysSip";
 import Payroll from "./Component/EmployeeMangement/Payroll";
 import Security from "./Component/EmployeeMangement/Security";
-import File from "./Component/EmployeeMangem
+import File from "./Component/EmployeeMangement/File";
 function App() {
 
   const router = createBrowserRouter([
