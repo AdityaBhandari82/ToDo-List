@@ -320,6 +320,53 @@ const SetupPopup = ({ isOpen, onClose }) => {
       </div>
     </>
   );
+  const [autoCalculate, setAutoCalculate] = useState(true);
+  const [values, setValues] = useState({
+    fullDayMinutes: 480,
+    fullDayValue: 1,
+    halfDayMinutes: 240,
+    halfDayValue: 0, 
+    shortDayMinutes: 120,
+    shortDayValue: 0.33,
+  });
+
+
+  const leave =()=>(
+    <>
+    <div className="max-w-lg mx-auto p-6 bg-white ">
+      <label className="flex items-center mb-4 text-sm font-medium text-gray-700">
+        <input
+          type="checkbox"
+          checked={autoCalculate}
+          onChange={() => setAutoCalculate(!autoCalculate)}
+          className="mr-2 w-4 h-4"
+        />
+        Check to auto calculate the leave minutes on the basis of Shift IN and Shift OUT
+      </label>
+      
+      <div className="grid grid-cols-2 gap-4 mb-4">
+        {Object.entries(values).map(([key, value]) => (
+          <div key={key}>
+            <label className="block text-gray-700 text-sm font-medium mb-1">
+              {key.replace(/([A-Z])/g, ' $1').replace('Day ', 'Day ')}
+            </label>
+            <input
+              type="number"
+              name={key}
+              value={value}
+              onChange={(e) => setValues({ ...values, [key]: e.target.value })}
+              className="w-full px-3 py-2 border rounded focus:ring-2 focus:ring-blue-400 focus:outline-none"
+            />
+          </div>
+        ))}
+      </div>
+      
+     
+    </div>
+    
+    </>
+  );
+
 
   const lateShiftingOverTimeForm = () => (
     <>
@@ -495,6 +542,9 @@ const SetupPopup = ({ isOpen, onClose }) => {
 
   const getActiveForm = () => {
     switch (activeTab) {
+      case "Leave":
+        return leave();
+
       case "Shift":
         return shiftForm();
       case "Late & Early Relaxation":
@@ -546,8 +596,8 @@ const SetupPopup = ({ isOpen, onClose }) => {
               "Late & Early Relaxation",
               "Late Sitting & Over Time",
               "Working Days",
-              "Leave",
-              "Message Time",
+              "Leave"
+             
             ].map((tab) => (
               <button
                 key={tab}
