@@ -53,7 +53,7 @@ import EmployeementInfo from "./Component/EmployeeMangement/EmployeementInfo"
 import PerformanceEntry from "./Component/Performance/PerformanceEntry";
 import PerformanceReport from "./Component/Performance/PerformanceReport";
 import PerformanceTemplate from "./Component/Performance/PerformanceTemplate";
-import EmployeeContact from "./Component/EmployeeMangement/EMployeeContact";
+import EmployeeContact from "./Component/EmployeeMangement/EmployeeContact";
 import EmployeeProfile from "./Component/EmployeeMangement/EmployeeProfile";
 import ReportLayout from "./Pages/ReportLayout"
 import Report from "./Component/Report/Report"
