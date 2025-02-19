@@ -1,16 +1,38 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { GoHome } from "react-icons/go";
 import { FaRegUser } from "react-icons/fa";
 import ManagmentDashboard from "./ManagmentDashboard";
 import homeIcon from "../Image/homeIcon.png"
 import userProfileIcon from "../Image/userProfile.png"
+import axios from "axios";
 
 function Home() {
   const [toDate, setToDate] = useState("");
   const [fromDate, setFromDate] = useState("From Date");
   const [activeTab, setActiveTab] = useState("employee"); // Default tab is Employee Dashboard
+  const [departments, setDepartments] = useState([]);
 
+ 
+  useEffect(() => {
+    const fetchDepartmentData = async () => {
+      try {
+        await axios.get("http://localhost:8000/website/dashboardroute/dashboard")
+          .then((res) => {
+            console.log(res.data);
+            const formattedData = res.data.map(dept => ({
+              departmentName: dept.departmentName.charAt(0).toUpperCase() + dept.departmentName.slice(1).toLowerCase(),
+              count: dept.count
+            }));
+            setDepartments(formattedData);
+          });
+      } catch (error) {
+        console.error("Error fetching department data:", error);
+      }
+    };
+
+    fetchDepartmentData();
+  }, []);
   return (
     <>
       <section className="bg-sky-100 flex flex-col w-full h-screen">
@@ -145,51 +167,34 @@ function Home() {
 
                 {/* Attendance Summary Report */}
                 <div className="mt-6">
-                  <p className="font-medium text-lg pb-3">
-                    Attendance Summary Report of the Day
-                  </p>
-                  <div className="overflow-x-auto">
-                    <table className="w-full border-separate border-spacing-0 bg-white p-4">
-                      <thead className="bg-[#D6D6D6]">
-                        <tr className="font-semibold text-gray-700 text-sm md:text-base">
-                          {[
-                            "Department",
-                            "Total Employee",
-                            "Present",
-                            "Absent",
-                            "On Time",
-                            "Late",
-                            "On Leave",
-                          ].map((heading, index) => (
-                            <th
-                              key={index}
-                              className="border-r border-gray-300 px-4 py-2 text-left"
-                            >
-                              {heading}
-                            </th>
-                          ))}
-                        </tr>
-                      </thead>
-                      <tbody>
-                        {Array.from({ length: 7 }).map((_, index) => (
-                          <tr
-                            key={index}
-                            className="bg-white text-gray-600 font-medium text-sm md:text-base"
-                          >
-                            {Array.from({ length: 7 }).map((_, colIndex) => (
-                              <td
-                                key={colIndex}
-                                className="border-r border-gray-300 px-4 py-2"
-                              >
-                                Row {index + 1}, Col {colIndex + 1}
-                              </td>
-                            ))}
-                          </tr>
-                        ))}
-                      </tbody>
-                    </table>
-                  </div>
-                </div>
+      <p className="font-medium text-lg pb-3">
+        Attendance Summary Report of the Day
+      </p>
+      <div className="overflow-x-auto">
+        <table className="w-full border-separate border-spacing-0 bg-white p-4">
+          <thead className="bg-[#D6D6D6]">
+            <tr className="font-semibold text-gray-700 text-sm md:text-base">
+              {["Department", "Total Employee", "Present", "Absent", "On Time", "Late", "On Leave"].map((heading, index) => (
+                <th key={index} className="border-r border-gray-300 px-4 py-2 text-left">
+                  {heading}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {departments.map((dept, index) => (
+              <tr key={index} className="bg-white text-gray-600 font-medium text-sm md:text-base">
+                <td className="border-r border-gray-300 px-4 py-2">{dept.departmentName}</td>
+                <td className="border-r border-gray-300 px-4 py-2">{dept.count}</td>
+                {Array.from({ length: 5 }).map((_, colIndex) => (
+                  <td key={colIndex} className="border-r border-gray-300 px-4 py-2">-</td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
               </div>
             )}
 
