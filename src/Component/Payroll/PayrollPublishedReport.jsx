@@ -2,8 +2,7 @@ import React from "react";
 import Header from "../Header";
 import pdf from "./images/pdf1.png";
 import show2 from "./images/show2.png";
-
-const PayrollPublishedReport = () => {
+function PayrollPublishedReport() {
   return (
     <>
       <section className="bg-sky-100 flex flex-col w-full h-screen">

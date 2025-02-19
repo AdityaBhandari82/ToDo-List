@@ -4,7 +4,7 @@ import { GoHome } from "react-icons/go";
 import { FaRegUser } from "react-icons/fa";
 import ManagmentDashboard from "./ManagmentDashboard";
 import homeIcon from "../Image/homeIcon.png"
-import userProfileIcon from "../Image/userProfileIcon.png"
+import userProfileIcon from "../Image/userProfile.png"
 
 function Home() {
   const [toDate, setToDate] = useState("");

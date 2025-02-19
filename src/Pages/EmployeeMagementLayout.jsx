@@ -4,8 +4,9 @@ import Sidebar from '../Component/Sidebar'
 import { Outlet } from 'react-router-dom'
 
 
-function Employeepage() {
+function EmployeeMagementLayout() {
   return (
+
     <>
         <div className='flex flex-row bg-sky-100 w-full'>
             <div className='w-3/12'>
@@ -20,7 +21,7 @@ function Employeepage() {
   )
 }
 
-export default Employeepage
+export default EmployeeMagementLayout
 
 
 

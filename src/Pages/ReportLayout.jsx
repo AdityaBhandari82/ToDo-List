@@ -2,10 +2,8 @@ import React from 'react'
 import Sidebar from '../Component/Sidebar'
 
 
-import Payroll from '../Component/Payroll/Payroll'
-import Shift from '../Component/Shiftsetup/Shift'
-import Employee from '../Component/EmployeeMangement/Employee'
-import Report from '../Component/Report/Report'
+
+import { Outlet } from 'react-router-dom'
 
 function Reportpage() {
   return (
@@ -15,7 +13,7 @@ function Reportpage() {
                 {<Sidebar />}
             </div>
             <div className='w-9/12'>
-                <Report/>
+               {<Outlet/>}
             </div>
         </div>
     

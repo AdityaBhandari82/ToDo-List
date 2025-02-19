@@ -31,7 +31,7 @@ function Sidebar() {
         { name: "Approval Status Report", path: "/attendance/approvalstatus" },
         { name: "Online Punch", path: "/attendance/onlinepunch" },
         { name: "Long Term Loan", path: "/attendance/longtermloan" },
-        { name: "Provident Fund Entry", path: "/attendance/provident-fund" },
+       
         { name: "My Pay Slip", path: "/attendance/pay-slip" },
       ]
     },
@@ -45,31 +45,21 @@ function Sidebar() {
     { name: "Approval", icon: approval, path: "/approval",
       subMenu: [
         {name:"HOD Approval", path:"/approval/hod_approval"},
-        {name:"HR Approval", path:"approval/cod_approval"},
-        {name:"COD Approval", path:"/approval/cod_approval"}
+        {name:"HR Approval", path:"approval/cod_approval"}
       ]
      },
     { name: "HR Report", icon: report, path: "/hrreport",
       subMenu:[
         {name:"HR Attendance Report", path:"/hrreport/hr_attendance_report"},
-        {name:"HR Leave Balance", path:"/hrreport/hr_leave_balance"},
-        {name:"Arrears Report", path:"/hrreport/arrears_report"},
-        {name:"HR Entry Status", path:"/hrreport/hr_entry_status"},
-        {name:"Leave Report", path:"/hrreport/leave_report"},
+        
         {name:"Attendance Details Report", path:"/hrreport/attendance_deatil_report"},
       ]
      },
     { name: "General Setting", icon: setting, path: "/setting",
       subMenu:[
-        {name:"Location", path:"/setting/location"},
-        {name:"Setting Role", path:"/setting/security_role"},
         {name:"Gazetted Holiday", path:"/setting/gazetted_holiday"},
         {name:"Leave Entitlement", path:"/setting/leave_enttitlement"},
-        {name:"Approval Policy", path:"setting/approval_policy"},
-        {name:"Email Coinfiguration", path:"setting/email_configuration"}, 
-
-          
-      ]
+       ]
     },
     { name: "Payroll", icon: payroll, path: "/payroll",subMenu:[
       {name:"Payroll Months", path:"/payroll/payroll_months"},
@@ -77,8 +67,8 @@ function Sidebar() {
       {name:"Allowance Deduction Types", path:"/payroll/allowance_deduction_types"},
       {name:"Allowance Deduction", path:"/payroll/allowance_deduction"},
       {name:"Payroll Final Report", path:"/payroll/payroll_final_report"},
-      {name:"Payroll Publish", path:"/payroll/payroll_publish"},
-      {name:"Payroll Publish Report", path:"/payroll/payroll_publish_report"}
+     
+      
     ] },
     { name: "Shift Setup", icon: shift, path: "/shiftsetup",subMenu:[
       {name:"Create Shift", Path:"/shiftSettup/create_shift"},
@@ -91,9 +81,13 @@ function Sidebar() {
       {name:"Designation", path:"/employeemanagement/designation"},
     ] },
     { name: "Management", icon: employee, path: "/management",subMenu:[
-      {name:"Organisation Structire", path:"/management/organisation_struture"}
+      {name:"Organisation Structure", path:"/management/organisation_struture"}
     ] },
-    { name: "Performance Management", icon: performance, path: "/performancemanagement" },
+    { name: "Performance ", icon: performance, path: "/performance",subMenu:[
+      {name:"Performance Template", path:"/performance/performance_template"},
+      {name:"Performance Entry", path:"/performance/performance_entry"},
+      {name:"performance Report", path:"/performance/performance_report"}
+    ] },
     { name: "Report", icon: report, path: "/report" }
   ];
 

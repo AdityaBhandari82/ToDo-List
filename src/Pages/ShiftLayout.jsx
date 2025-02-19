@@ -1,6 +1,6 @@
 import React from 'react'
 import Sidebar from '../Component/Sidebar'
-import Shift from '../Component/Shiftsetup/Shift'
+import { Outlet } from 'react-router-dom'
 
 function Shiftpage() {
   return (
@@ -10,7 +10,7 @@ function Shiftpage() {
                 {<Sidebar />}
             </div>
             <div className='w-9/12'>
-                <Shift/>
+            <Outlet/>
             </div>
         </div>
     

@@ -1,38 +1,72 @@
-import React, { useState } from 'react';
+import React,{useState} from 'react';
 import Header from '../Header';
-import crossIcon from "../Image/crossIcon.png"
 import downArrow from "../Image/downArrow.png"
 import calenderIcon from "../Image/calenderIcon.png"
-
+import crossIcon from "../Image/crossIcon.png";
 function LeaveEntitle() {
-    const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
   const [isOpenImport, setIsOpenImport] = useState(false);
-
   const [date, setDate] = useState("");
   return (
     <>
       <section className="bg-sky-100 flex flex-col w-full h-screen">
         <Header/>
 
-        <button
-            onClick={() => setIsOpen(true)}
-            className="bg-red-800 py-2 px-4 text-white rounded-lg m-4 font-Mukta"
-          >
-            Add New
-          </button>
+       
 
-          <button
-            onClick={() => setIsOpenImport(true)}
-            className="bg-red-800 py-2 px-4 text-white rounded-lg m-4 font-Mukta"
-          >
-            Import
-          </button>
+        <div className="bg-[#DBF2FF] p-6 rounded-lg min-h-screen">
+          <h1 className="my-4 font-bold text-xl">Leave Entitlement</h1>
 
+    
+          <div className="bg-white p-4 rounded-lg flex flex-wrap md:flex-nowrap items-center gap-4 w-full">
+            
+            
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 flex-1 w-full">
+              <select className="w-full p-2 text-gray-600 border border-gray-400 rounded-md">
+                <option>Select Department</option>
+                <option value="hr">HR</option>
+                <option value="it">IT</option>
+                <option value="finance">Finance</option>
+              </select>
 
-             {/* Popup Modal */}
+              <select className="w-full p-2 text-gray-600 border border-gray-400 rounded-md">
+                <option>Select Leave Type</option>
+                <option value="paid leave">Paid Leave</option>
+                <option value="unpaid leave">Unpaid Leave</option>
+                <option value="voluntary leave">Voluntary Leave</option>
+              </select>
+
+              <select className="w-full p-2 text-gray-600 border border-gray-400 rounded-md">
+                <option>Select Year</option>
+                <option value="2024">2024</option>
+                <option value="2025">2025</option>
+              </select>
+            </div>
+
+          
+            <div className="flex flex-wrap sm:flex-nowrap gap-3 w-full sm:w-auto justify-center">
+              <button className="bg-blue-500 text-white px-4 py-2 rounded-md w-full sm:w-auto">
+                Show
+              </button>
+              <button className="bg-green-600 text-white px-4 py-2 rounded-md w-full sm:w-auto" onClick={() => setIsOpen(true)}>
+                Add New
+              </button>
+              <button className="bg-red-600 text-white px-4 py-2 rounded-md w-full sm:w-auto" onClick={() => setIsOpenImport(true)}>
+                Import
+              </button>
+            </div>
+          </div>
+
+          
+          <h1 className="bg-white my-2 p-3 font-semibold rounded">
+            Leave Entitled
+          </h1>
+        </div>
+      </section>
+      {/* Popup Modal */}
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center bg-transparent backdrop-blur-xs px-4">
-          <div className="bg-white p-4 rounded-lg shadow-lg w-[90%] max-w-[578px] h-[477px] top-[-100px] mx-auto relative">
+          <div className="bg-white p-4 rounded-lg shadow-lg w-[90%] max-w-[578px]  top-[-100px] mx-auto relative">
             <div className="">
               {/* Modal Header */}
               <div className="flex justify-between items-center border-b-[1px] border-[#D3D3D3] pb-3">
@@ -167,7 +201,6 @@ function LeaveEntitle() {
         </div>
       )}
 
-      </section>
     </>
   );
 }
