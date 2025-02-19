@@ -53,10 +53,12 @@ import EmployeementInfo from "./Component/EmployeeMangement/EmployeementInfo"
 import PerformanceEntry from "./Component/Performance/PerformanceEntry";
 import PerformanceReport from "./Component/Performance/PerformanceReport";
 import PerformanceTemplate from "./Component/Performance/PerformanceTemplate";
-import EmployeeContact from "./Component/EmployeeMangement/EMployeeContact";
+import EmployeeContact from "./Component/EmployeeMangement/EmployeeContact";
 import EmployeeProfile from "./Component/EmployeeMangement/EmployeeProfile";
 import ReportLayout from "./Pages/ReportLayout"
 import Report from "./Component/Report/Report"
+
+import 'react-toastify/dist/ReactToastify.css';
 import PaysSip from "./Component/Attendance/PaysSip";
 import Payroll from "./Component/EmployeeMangement/Payroll";
 import Security from "./Component/EmployeeMangement/Security";
@@ -68,6 +70,10 @@ function App() {
       path: "/",
       element: <DashboardLayout />,
     },
+    // {
+    //     path:'managmentDashboard',
+    //     element:<ManagmentDashboard />
+    // },
     //attendance
     {
       path: "/attendance",

@@ -72,6 +72,8 @@ function Sidebar() {
     ] },
     { name: "Shift Setup", icon: shift, path: "/shiftsetup",subMenu:[
       {name:"Create Shift", path:"/shiftsetup"},
+      {name:"Create Shift", Path:"/shiftSettup/create_shift"},
+      {name:"Create Shift", path:"/shiftsetup/create_shift"},
       {name:"Assign Shift Employee", path:"/shiftsetup/assign_shift_employee"},
     ] },
     { name: "Employee Management", icon: management, path: "/employeemanagement",subMenu:[

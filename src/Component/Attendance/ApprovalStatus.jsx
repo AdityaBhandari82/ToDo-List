@@ -14,9 +14,7 @@ function ApprovalStatus() {
             />
           </div>
         </div>
-
         <h3 className=''>Transaction Status Report </h3>
-
         <div className="flex flex-row justify-between mx-4 lg:mx-6 rounded-lg my-2 lg:my-4 bg-white px-3 py-1">
         <div className="flex flex-row gap-2">
         <input type="date"  className="p-2 border-2 border-gray-600 outline-gray-400 text-gray-600 rounded-md w-40 lg:w-60" placeholderText="From date" />
@@ -26,7 +24,6 @@ function ApprovalStatus() {
             <button className='px-3 py-2 rounded-lg text-white bg-blue-500'>show </button>
         </div>
         </div>
-
         <section className='bg-white rounded mx-4 lg:mx-6 my-2 lg:my-4 flex flex-col px-3 py-1'>
             <h5 className='text-lg font-semibold'>leaves</h5>
             <div className="p-2 flex w-full rounded-lg mt-2 bg-gray-300">
@@ -43,9 +40,7 @@ function ApprovalStatus() {
                         </div>
                         <div className='w-2/12'>
                             <p className='font-semibold text-base'>Reason</p>
-                        </div>
-                        
-                       
+                        </div>  
                     </div>
                 </div>
                 <div className='w-7/12'>
@@ -65,7 +60,6 @@ function ApprovalStatus() {
                         <div className='w-2/12'>
                         <p className='font-semibold text-base'>Rejected</p>
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -84,14 +78,11 @@ function ApprovalStatus() {
                         <div className='w-2/12'>
                             <p className=' text-base'>Reason</p>
                         </div>
-                        
-                       
                     </div>
                 </div>
                 <div className='w-7/12'>
                     <div className='w-full flex flex-row'>
-                        <div className='w-6/12'>
-                           
+                        <div className='w-6/12'>    
                         </div>
                         <div className='w-2/12'>
                         <input type="checkbox" />
@@ -105,20 +96,15 @@ function ApprovalStatus() {
                         <div className='w-2/12'>
                         <input type="checkbox" />
                         </div>
-
                     </div>
                 </div>
             </div>
-
         </section>
-
-        
-        
-
       </section>
     </>
   );
 }
+
 
 export default ApprovalStatus;
 

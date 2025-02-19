@@ -1,5 +1,9 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import axios from 'axios'; // Ensure axios is imported
+
+import { toast, ToastContainer,  } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const AddAllowancePopup = ({ isOpen, onClose, onSave }) => {
   const [formData, setFormData] = useState({
@@ -7,20 +11,56 @@ const AddAllowancePopup = ({ isOpen, onClose, onSave }) => {
     name: '',
     description: ''
   });
+  const [isSubmitting, setIsSubmitting] = useState(false); // To prevent multiple submissions
+  const [isFormSubmitted, setIsFormSubmitted] = useState(false); // Track form submission status
 
   if (!isOpen) return null;
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onSave(formData);
-    setFormData({ type: '', name: '', description: '' });
-  };
 
   const handleChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    // Custom validation (if any)
+    if (!formData.type || !formData.name || !formData.description) {
+      toast.error("Please fill in all fields.", { position: "top-right" });
+      return;
+    }
+
+    setIsSubmitting(true); // Set submitting state to true to disable the button while submitting
+
+    try {
+      const response = await axios.post(
+        "http://localhost:8000/website/payroll/allowdeductiontyperoutes",
+        formData
+      );
+
+      if (response.status === 200) {
+        toast.success(response.data.msg || "Successfully submitted!", { position: "top-right" });
+
+        // Reset form after successful submission
+        setFormData({
+          type: '',
+          name: '',
+          description: ''
+        });
+
+        setIsFormSubmitted(true); // Set the form submission flag to true
+
+        // Optionally call onSave if you need to trigger any action on save
+        // if (onSave) onSave();
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      toast.error(error.response?.data?.msg || "Submission failed. Please try again.", { position: "top-right" });
+    } finally {
+      setIsSubmitting(false); // Reset the submitting state after submission
+    }
   };
 
   return (
@@ -37,7 +77,7 @@ const AddAllowancePopup = ({ isOpen, onClose, onSave }) => {
               Add Allowance and Deduction Types
             </h2>
             <button
-              onClick={onClose}
+              onClick={onClose} // This is where the popup will close manually
               className="text-gray-500 hover:text-gray-700 transition-colors"
             >
               <X className="w-6 h-6" />
@@ -105,19 +145,21 @@ const AddAllowancePopup = ({ isOpen, onClose, onSave }) => {
             <div className="flex justify-end space-x-4 pt-4">
               <button
                 type="button"
-                onClick={onClose}
+                onClick={onClose} // This is the manual close button
                 className="px-6 py-2 rounded-md bg-gray-400 text-white hover:bg-gray-500 transition-colors"
               >
                 Close
               </button>
               <button
                 type="submit"
-                className="px-6 py-2 rounded-md bg-teal-600 text-white hover:bg-teal-700 transition-colors"
+                className={`px-6 py-2 rounded-md ${isSubmitting ? 'bg-gray-400' : 'bg-teal-600'} text-white hover:bg-teal-700 transition-colors`}
+                disabled={isSubmitting} // Disable the button while submitting
               >
-                Save
+                {isSubmitting ? "Submitting..." : "Save"}
               </button>
             </div>
           </form>
+           <ToastContainer />
         </div>
       </div>
     </>
