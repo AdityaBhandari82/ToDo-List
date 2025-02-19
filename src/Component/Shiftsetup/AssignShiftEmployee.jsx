@@ -3,9 +3,10 @@ import Header from "../Header";
 import BulkShiftPopup from "./BulkShiftPopup";
 import { Link } from 'react-router-dom';
 
+
 const AssignEmployeShift = () => {
     const [department, setDepartment] = useState("");
-      const [isPopupOpen, setIsPopupOpen] = useState(false);
+    const [isPopupOpen, setIsPopupOpen] = useState(false);
     
 
     return (
@@ -44,6 +45,13 @@ const AssignEmployeShift = () => {
                     </div>
             </div>
             <BulkShiftPopup isOpen={isPopupOpen} onClose={() => setIsPopupOpen(false)} />
+
+            <div>
+          <button onClick={()=>setIsopen(true)}>
+            add
+          </button>
+      
+        </div>
 
         </>
     );
