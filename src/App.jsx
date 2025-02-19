@@ -49,7 +49,7 @@ import Designation from "./Component/EmployeeMangement/Designation";
 import ManagementLayout from "./Pages/ManagementLayout";
 import OrganisationStructure from "./Component/Management/OrganisationStructure";
 import PerformanceLayout from "./Pages/PerformanceLayout";
-
+import EmployeementInfo from "./Component/EmployeeMangement/EmployeementInfo"
 import PerformanceEntry from "./Component/Performance/PerformanceEntry";
 import PerformanceReport from "./Component/Performance/PerformanceReport";
 import PerformanceTemplate from "./Component/Performance/PerformanceTemplate";
@@ -59,6 +59,10 @@ import ReportLayout from "./Pages/ReportLayout"
 import Report from "./Component/Report/Report"
 
 import 'react-toastify/dist/ReactToastify.css';
+import PaysSip from "./Component/Attendance/PaysSip";
+import Payroll from "./Component/EmployeeMangement/Payroll";
+import Security from "./Component/EmployeeMangement/Security";
+import File from "./Component/EmployeeMangem
 function App() {
 
   const router = createBrowserRouter([
@@ -77,7 +81,7 @@ function App() {
       children: [
         {
           path: "/attendance",
-          element: <Attendance />,
+          element: <MyAttendanceReport />,
         },
 
         {
@@ -103,7 +107,10 @@ function App() {
         {
           path: "setting/leaveEnttitlement",
           element: <LeaveEntitlement />,
-        },
+        },{
+          path: "/attendance/pay-slip",
+          element: <PaysSip/>
+        }
       ],
     },
     //leave
@@ -112,7 +119,7 @@ function App() {
       element: <LeaveLayout />,
       children: [
         {
-          path: "/leave/entry",
+          path: "/leave",
           element: <LeaveEntry />,
         },
         {
@@ -127,7 +134,7 @@ function App() {
       element: <ApprovalLayout />,
       children: [
         {
-          path: "/approval/hod_approval",
+          path: "/approval",
           element: <HodApproval />,
         },
         {
@@ -143,7 +150,7 @@ function App() {
       element: <HrReportLayout />,
       children: [
         {
-          path: "/hrreport/hr_attendance_report",
+          path: "/hrreport",
           element: <Hrattendancereport />,
         },
         {
@@ -170,7 +177,7 @@ function App() {
           element: <LeaveEntitle />,
         },
         {
-          path: "/setting/gazetted_holiday",
+          path: "/setting",
           element: <GazettedHoliday />,
         },
         {
@@ -189,7 +196,7 @@ function App() {
       element: <PayrollLayout />,
       children: [
         {
-          path: "/payroll/payroll_months",
+          path: "/payroll",
           element: <PayrollMonths />,
         },
         {
@@ -223,7 +230,7 @@ function App() {
       element: <ShiftLayout />,
       children: [
         {
-          path: "/shiftsetup/create_shift",
+          path: "/shiftsetup",
           element: <CreateShift />,
         },
         {
@@ -238,7 +245,7 @@ function App() {
       children:[
         
         {
-          path: "/employeemanagement/employee_info",
+          path: "/employeemanagement",
         element: <EmployeeInfo />
         },
         {
@@ -248,6 +255,24 @@ function App() {
         {
           path: "/employeemanagement/employee_profile", // ❌ Remove the leading "/"
           element: <EmployeeProfile />
+        },{
+          
+          path: "/employeemanagement/employeement_info", // ❌ Remove the leading "/"
+          element: <EmployeementInfo />
+        },{
+          
+          path: "/employeemanagement/payroll", // ❌ Remove the leading "/"
+          element: <Payroll />
+        },
+        {
+          
+          path: "/employeemanagement/security", // ❌ Remove the leading "/"
+          element: <Security />
+        },
+        {
+          
+          path: "/employeemanagement/file", // ❌ Remove the leading "/"
+          element: <File />
         },
         {
           path: "/employeemanagement/department",
@@ -264,7 +289,7 @@ function App() {
       element:<ManagementLayout/>,
       children:[
         {
-          path: "/management/organisation_struture",
+          path: "/management",
           element: <OrganisationStructure/>
         }
       ]},
@@ -273,7 +298,7 @@ function App() {
         element:<PerformanceLayout/>,
         children:[
           {
-            path: "/performance/performance_template",
+            path: "/performance",
             element: <PerformanceTemplate/>
           },
           {

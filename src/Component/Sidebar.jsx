@@ -30,7 +30,7 @@ function Sidebar() {
         { name: "Attendance Summary", path: "/attendance/summary" },
         { name: "Approval Status Report", path: "/attendance/approvalstatus" },
         { name: "Online Punch", path: "/attendance/onlinepunch" },
-        { name: "Long Term Loan", path: "/attendance/longtermloan" },
+        // { name: "Long Term Loan", path: "/attendance/longtermloan" },
        
         { name: "My Pay Slip", path: "/attendance/pay-slip" },
       ]
@@ -121,11 +121,13 @@ function Sidebar() {
   };
 
   const toggleDropdown = (name) => {
-    setExpandedItems(prev => ({ ...prev, [name]: !prev[name] }));
+    setExpandedItems(prev => ({
+      [name]: !prev[name] // Open the clicked submenu while closing all others
+    }));
   };
 
   return (
-    <footer className="flex flex-col overflow-hidden w-full h-screen bg-slate-700 text-white ">
+    <footer className="flex flex-col overflow-hidden w-full min-h-screen bg-slate-700 text-white ">
       <div className="flex flex-col h-full text-gray-300">
         <h2 className="text-3xl ml-10 mt-3">HRIS Demo</h2>
         <ul className="flex flex-col list-none mt-8 ml-6 text-sm gap-1">
@@ -138,22 +140,26 @@ function Sidebar() {
                 onClick={() => handleNavigation(item.path)}
               >
                 <div className="w-full flex flex-row justify-between">
-                  <div className="flex items-center">
-                    <img src={item.icon} alt={item.name} className="h-4 w-4 mr-2.5" />
-                    <p>{item.name}</p>
-                  </div>
-                  {item.subMenu && (
-                    <div
-                      className="pr-4 cursor-pointer"
-                      onClick={(e) => {
-                        e.stopPropagation(); // Prevents triggering handleNavigation
-                        toggleDropdown(item.name);
-                      }}
-                    >
-                      {expandedItems[item.name] ? <ChevronDown /> : <ChevronRight />}
-                    </div>
-                  )}
-                </div>
+  <div className="flex " onClick={(e) => {
+        e.stopPropagation();
+        toggleDropdown(item.name);
+      }}>
+    <img src={item.icon} alt={item.name} className="h-4 w-4 mr-2.5" />
+    <p >{item.name}</p>
+  </div>
+  {item.subMenu && (
+    <div
+      className="pr-4 cursor-pointer flex items-center"
+      onClick={(e) => {
+        e.stopPropagation();
+        toggleDropdown(item.name);
+      }}
+    >
+      {expandedItems[item.name] ? <ChevronDown /> : <ChevronRight />}
+    </div>
+  )}
+</div>
+
               </div>
 
               {/* ✅ Fix: Handle submenu navigation properly */}
