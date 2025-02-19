@@ -91,6 +91,7 @@ function AllowanceDeductionTypes() {
 
           {/* Flex Table */}
           {showTable && (
+            
             <div className="bg-white shadow-md rounded-lg overflow-hidden mt-8">
               <div className="p-4">
                 <h2 className="text-base font-semibold mb-4">Allowance and Deduction Types Entry</h2>
