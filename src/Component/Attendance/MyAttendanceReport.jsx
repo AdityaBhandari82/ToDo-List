@@ -21,10 +21,11 @@ const MyAttendanceReport = () => {
     setShowTable(true);
   };
 
-  return (
-    <section className="bg-sky-100 flex flex-col w-full min-h-screen">
-      {/* Header */}
-     <Header/>
+ 
+    return (
+      <section className="bg-sky-100 flex flex-col w-full min-h-screen">
+        {/* Header */}
+        <Header />
 
         {/* Main Content */}
         <div className="bg-[#DBF2FF] p-6 rounded-lg flex-1">
@@ -96,25 +97,25 @@ const MyAttendanceReport = () => {
                                 <img src={Edit} alt="edit" className="w-6 h-6" />
                               </button>
 
-                  {openPopupIndex === index && (
-                    <MissingTimePopup
-                      isOpen={true}
-                      onClose={() => setOpenPopupIndex(null)}
-                    />
-                  )}
-                </>
-              )}
+                              {openPopupIndex === index && (
+                                <MissingTimePopup
+                                  isOpen={true}
+                                  onClose={() => setOpenPopupIndex(null)}
+                                />
+                              )}
+                            </>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
-          </td>
-        </tr>
-      ))}
-    </tbody>
-            </table>
-          </div>
-        )}
-      </div>
-    </section>
-  );
-};
+          )}
+        </div>
+      </section>
+    );
+  };
 
-export default AttendanceReport;
+  export default MyAttendanceReport;
