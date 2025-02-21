@@ -11,6 +11,7 @@ function ApprovalLayout() {
             </div>
             <div className='w-9/12'>
                <Outlet/>
+               
             </div>
         </div>
     

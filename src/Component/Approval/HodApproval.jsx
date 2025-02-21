@@ -6,6 +6,8 @@ function Approval() {
 
   return (
     <>
+
+    
       <section className="bg-sky-100 flex flex-col w-full h-screen">
         {/* Navbar */}
         <div className="pt-4 pb-3 pr-8 pl-3">
