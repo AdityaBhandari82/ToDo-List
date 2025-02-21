@@ -1,59 +1,97 @@
 import React from 'react'
 // import img1 from '../assets/Vector1.png'
+import Header from '../Header';
+import { useState } from 'react';
+import icon from "../Payroll/Print.png";
+
 
 function PerformanceReport() {
+
+  const department = [
+    { id: 1, name: 'Finance' },
+    { id: 2, name: 'Management' },
+    { id: 3, name: 'IT' },
+    { id: 4, name: 'House Keeping' },
+    { id: 5, name: 'Security' }
+  ];
+  const [selectedDepartment, setSelectedDepartment] = useState('');
+
+  const handleShow = () => {
+    // if (!selectedDepartment || !fromDate) {
+    //   alert('Please select all required fields');
+    //   return;
+    // }
+    
+  };
+
+  
+
   return (
     <>
-    <section className="bg-sky-100 flex flex-col w-full h-screen">
-        <div className="h-20 bg-slate-700 flex flex-row w-full justify-end items-center pr-4">
-          <div className="flex justify-center items-center space-x-1.5">
-            <p className="text-gray-300 text-xl">Santosh</p>
-            <img
-              src="https://images.pexels.com/photos/614810/pexels-photo-614810.jpeg?cs=srgb&dl=pexels-simon-robben-55958-614810.jpg&fm=jpg"
-              className="h-16 w-16 rounded-full"
-              alt=""
-            />
+      <section className="bg-sky-100 flex flex-col w-full h-screen">
+        <Header />
+
+        <div className="min-h-screen bg-sky-100 p-5">
+          <h1 className="text-2xl font-semibold mb-6">Performance Report</h1>
+
+          {/* Filters Section */}
+          <div className="bg-white p-4 rounded-lg shadow mb-6">
+            <div className="flex flex-wrap items-center justify-between gap-4">
+              {/* Left Side - Filters */}
+              <div className="flex flex-wrap gap-4 flex-1">
+              <select className="w-60 md:w-64 p-2 border-2 text-gray-600 border-gray-600 outline-gray-400 rounded-md">
+                  <option>Select Employee</option>
+                  <option value="john">John Doe</option>
+                  <option value="jane">Jane Smith</option>
+                </select>
+
+                <select
+                  className="w-60 md:w-64 p-2 border-2 text-gray-600 border-gray-600 outline-gray-400 rounded-md"
+                  value={selectedDepartment}
+                  onChange={(e) => setSelectedDepartment(e.target.value)}
+                >
+                  <option value="">Select Department</option>
+                  {department.map(dep => (
+                    <option key={dep.id} value={dep.id}>
+                      {dep.name}
+                    </option>
+                  ))}
+                </select>
+
+               
+              </div>
+
+              {/* Right Side - Show Button & Print Icon */}
+              <div className="flex items-center gap-4 shrink-0">
+                <button
+                  onClick={handleShow}
+                  className="bg-blue-500 text-white px-6 py-2 rounded-md hover:bg-blue-600 transition-colors"
+                >
+                  Show
+                </button>
+                
+                <div className="cursor-pointer">
+                  <img src={icon} alt="Print" className="w-10 h-10" />
+                </div>
+              </div>
+            </div>
           </div>
+
+          {/* Table Section */}
+          <div className="bg-white p-4 rounded-lg shadow">
+            <h2 className="text-lg font-medium text-gray-800 mb-4">Performance table of Ibad  Ur Rahman</h2>
+            <div className='bg-gray-300 p-4 rounded-lg shadow'>
+              <h3 className='font-semibold'>No Records Found!</h3>
+
+            </div>
+            
+            
+          </div>
+          
         </div>
-        <div className="bg-[#DBF2FF] p-6 rounded-lg min-h-screen">
-      <h2 className="text-2xl font-semibold px-3 mb-4">Performance Report</h2>
-      <div className="bg-white p-4 rounded-lg flex flex-wrap mt-8  gap-4 items-center">
-        <select className="w-60 md:w-64 p-2 text-gray-600 border-2 border-gray-600 outline-gray-400 rounded-md">
-          <option>Select Department</option>
-          <option value="hr">HR</option>
-          <option value="it">IT</option>
-          <option value="finance">Finance</option>
-        </select>
-        
-        <select className="w-60 md:w-64 p-2 border-2 text-gray-600 border-gray-600 outline-gray-400 rounded-md">
-          <option>Select Employee</option>
-          <option value="john">John Doe</option>
-          <option value="jane">Jane Smith</option>
-        </select>
-        
-        
-        
-        
-        
-        
-        
-        <button className="bg-blue-500 text-white px-8 py-2 lg:ml-85 rounded-md ">Show</button>
-        <img src="" alt="" className="bg-gray-200 p-2  ml-3 rounded"/>
-
-        
-      </div>
-      <div className='bg-white mt-5 rounded-md p-10'>
-        <h1 className='font-semibold px-2'>Performance Report of Ibad ur Rahman</h1>
-        <p className='bg-gray-300 mt-5 p-4 rounded-md'>No Record Found !</p>
-      </div>
-      
-      
-      
-    </div>
-
       </section>
-    </>
-  )
+        </>
+        )
 }
 
-export default PerformanceReport;
+        export default PerformanceReport;
