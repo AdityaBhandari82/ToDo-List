@@ -13,31 +13,24 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
     remarks: "",
   });
 
+
   const [dateError, setDateError] = useState("");
+  const [employeeTypes, setEmployeeTypes] = useState([]);
+
 
   // Handle Change for All Inputs
   const handleChange = (e) => {
-    // const { name, value } = e.target;
-    // setFormData((prev) => ({
-    //   ...prev,
-    //   [name]: value,
-    // }));
-
-   
       let obj = { ...formData };
       let InputName = e.target.name; // Corrected the typo
       let InputValue = e.target.value;
       obj[InputName] = InputValue;
       setFormData(obj);
-  
-    
   };
   
 
   // Date Validation
   const validateDates = (start, end) => {
     if (!start || !end) return true;
-
     const startDate = new Date(start);
     const endDate = new Date(end);
     const today = new Date();
@@ -110,14 +103,81 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
 
 
 
-  useEffect(() => {
-    if (isOpen) {
-      document.body.style.overflow = "hidden";
-    }
-    return () => {
-      document.body.style.overflow = "unset";
-    };
-  }, [isOpen]);
+  // useEffect(() => {
+
+    
+  //   if (isOpen) {
+  //     document.body.style.overflow = "hidden";
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "unset";
+  //   };
+  // },
+  
+  // [isOpen]);
+
+//   useEffect(() => {
+//     if (isOpen) {
+//         document.body.style.overflow = "hidden"; // Disable scrolling when modal is open
+
+//         // Fetch Employee Types when modal opens
+//         const fetchEmployeeTypes = async () => {
+//             try {
+//                 const response = await axios.get("http://localhost:8000/website/leave/leaveentrydata");
+//               console.log(response.data.employees.names)
+//                 if (response.status === 200 && response.data.employees.names) {
+//                     setEmployeeTypes(response.data.employees.names); // Store employee types correctly
+//                 } else {
+//                     console.error("Unexpected response format:", response.data);
+//                 }
+
+//             } catch (error) {
+//                 console.error("Error fetching employee types:", error);
+//             }
+//         };
+
+//         fetchEmployeeTypes();
+//     }
+
+//     return () => {
+//         document.body.style.overflow = "unset"; // Restore scrolling when modal closes
+//     };
+// }, [isOpen]); 
+
+useEffect(() => {
+  if (isOpen) {
+      document.body.style.overflow = "hidden"; // Disable scrolling when modal is open
+
+      // Fetch Employee Names when modal opens
+      const fetchEmployeeTypes = async () => {
+          try {
+              const response = await axios.get("http://localhost:8000/website/leave/leaveentrydata");
+              
+              if (response.status === 200 && Array.isArray(response.data.employees)) {
+                  // Extract only names from employees array
+                  const names = response.data.employees.map(emp => emp.name);
+                  
+                  console.log("Extracted Names:", names);
+                  setEmployeeTypes(names); // Store employee names correctly
+              } else {
+                  console.error("Unexpected response format:", response.data);
+              }
+
+          } catch (error) {
+              console.error("Error fetching employee names:", error);
+          }
+      };
+
+      fetchEmployeeTypes();
+  }
+
+  return () => {
+      document.body.style.overflow = "unset"; // Restore scrolling when modal closes
+  };
+}, [isOpen]);
+
+
+
 
   if (!isOpen) return null;
 
@@ -141,6 +201,31 @@ const LeaveEntryPopup = ({ isOpen, onClose, employeeName = "Ibad ur Rahman" }) =
             {/* Form Content */}
             <div className="p-4 sm:p-6 space-y-4">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
+
+                       {/* Employee Type */}
+                       <div className="space-y-2">
+    <label className="block text-gray-700 font-medium">Employee Type *</label>
+    <select
+        name="employeeType"
+        value={formData.employeeType}
+        onChange={handleChange}
+        className="w-full p-2 border border-gray-300 rounded-md"
+        required
+    >
+        <option value="">Select Employee Type</option>
+        {employeeTypes.length > 0 ? (
+            employeeTypes.map((type, index) => (
+                <option key={index} value={type}>
+                    {type}
+                </option>
+            ))
+        ) : (
+            <option value="" disabled>Loading...</option>
+        )}
+    </select>
+</div>
+
+
                 {/* Leave Type */}
                 <div className="space-y-2">
                   <label className="block text-gray-700 font-medium">Leave Type *</label>

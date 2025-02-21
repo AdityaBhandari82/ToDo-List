@@ -28,6 +28,7 @@ const EmployeeContact = () => {
           try {
               const response = await axios.get("http://localhost:8000/website/employeeInfoRoute/employeeinfo");
               if (response.data.status === 1 && response.data.employees) {
+                  console.log(response.data);
                   setEmployees(response.data.employees);
                   console.log("Fetched Employees:", response.data.employees);
               } else {
@@ -47,31 +48,31 @@ const EmployeeContact = () => {
       setSelectedEmployee(selectedEmployeeName);
 
       const foundEmployee = employees.find((emp) => emp.name === selectedEmployeeName);
+      console.log("Selected Employee Data:", foundEmployee); // Debugging output
 
       if (foundEmployee) {
-          setEmployeeData({
-              ...employeeData,
-              profileName: foundEmployee.name,
-              contactImage: foundEmployee.profileImage ? `http://localhost:8000/uploads/EmployeeInfoImage/${foundEmployee.profileImage}` : null,
-          });
-          setPhoto(foundEmployee.profileImage ? `http://localhost:8000/uploads/EmployeeInfoImage/${foundEmployee.profileImage}` : null);
+        setEmployeeData({
+          ...employeeData,
+          profileName: foundEmployee.name,
+        });
+        setPhoto(
+          foundEmployee.profileImage
+            ? `http://localhost:8000/uploads/EmployeeInfoImage/${foundEmployee.profileImage}`
+            : null
+        );
+        console.log("photo:", photo);
       } else {
-          setEmployeeData({
-              ...employeeData,
-              profileName: "",
-              contactImage: null,
-          });
-          setPhoto(null);
+        setEmployeeData({
+          ...employeeData,
+          profileName: "",
+        });
+        setPhoto(null);
       }
   };
 
 
   const handlePhotoChange = (e) => {
     if (e.target.files[0]) {
-      setEmployeeData({
-        ...employeeData,
-        contactImage: e.target.files[0], // Save the file directly in the state
-      });
       setPhoto(URL.createObjectURL(e.target.files[0])); // Update preview image
     }
   };
@@ -91,7 +92,6 @@ const EmployeeContact = () => {
     formData.append("workPhone", employeeData.workPhone);
     formData.append("emergencyContact", employeeData.emergencyContact);
     formData.append("emergencyPhone", employeeData.emergencyPhone);
-    formData.append("contactImage", employeeData.contactImage);
 
     try {
       const response = await axios.post(
@@ -158,7 +158,7 @@ const EmployeeContact = () => {
         <div className="flex flex-wrap md:flex-nowrap p-6 rounded-lg gap-6 justify-center">
         <div className="bg-white p-6 rounded-lg shadow-md w-full md:w-1/3 flex flex-col items-center">
             <img
-              src={photo || (employeeData.contactImage ? employeeData.contactImage : "saira")}
+              src={photo || "saira"}
               alt="Profile"
               className="w-32 h-32 rounded-full object-cover"
             />

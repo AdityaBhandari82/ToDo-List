@@ -5,9 +5,7 @@ function HrApproval() {
   return (
     <>
       <section className="bg-sky-100 flex flex-col w-full h-screen">
-        <Header/>
-
-        
+        <Header/>        
           {/* Toggle - Responsive */}
           <div className="flex flex-wrap gap-3 mb-5 bg-white rounded-lg p-3 items-center">
             <select className="p-1 border border-black rounded w-full sm:w-1/6 text-gray-600">
