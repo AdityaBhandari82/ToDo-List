@@ -13,6 +13,7 @@ function Hrreportpage() {
             </div>
             <div className='w-9/12'>
                 <Outlet/>
+                
             </div>
         </div>
     
