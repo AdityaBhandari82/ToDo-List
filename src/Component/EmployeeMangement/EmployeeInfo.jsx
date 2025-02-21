@@ -81,9 +81,15 @@ function EmployeeInfo() {
   const renderModal = () => {
     if (!activeModal) return null;
 
+    const handleClose = () => {
+      setActiveModal(null);
+    };
+
     function handleFilter() {
       return dates.filter(date => date === selectedDate);
     }
+
+
 
     function handleFilter() {
       if (typeof selectedGender !== "string") {
@@ -99,11 +105,18 @@ function EmployeeInfo() {
 
     const modalContent = {
       employee: (
+        <div className="relative p-6 bg-white rounded-lg ">
+        <button
+          onClick={handleClose}
+          className="absolute lg:top-[-50px] sm:top-[-70px] right-2 text-red-600 hover:text-red-800"
+        >
+          ✖
+        </button>
         <div className="flex flex-col sm:flex-row gap-6">
   
   <div className="flex flex-col items-center w-full sm:w-1/3 border-2 p-4 rounded-lg shadow-md">
     <img 
-      src={newEmployee.image || "https://via.placeholder.com/100"} 
+      src="https://th.bing.com/th/id/OIP.IZLLSP-RG2LYdFvM_Pl1mQHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7"
       alt="Profile" 
       className="w-24 h-24 rounded-full border"
     />
@@ -187,14 +200,23 @@ function EmployeeInfo() {
   </div>
 </div>
 
+      </div>
         
       ),
       contact: (
+        <div className="relative p-6 bg-white rounded-lg ">
+        <button
+          onClick={handleClose}
+          className="absolute lg:top-[-50px] sm:top-[-70px] right-2 text-red-600 hover:text-red-800"
+        >
+          ✖
+        </button>
+       
         <div className="flex flex-col sm:flex-row gap-6">
       
         <div className="flex flex-col items-center w-full sm:w-1/3 border-2 p-3 rounded-lg shadow-md">
           <img 
-            src={newEmployee.image || "https://via.placeholder.com/100"} 
+            src="https://th.bing.com/th/id/OIP.IZLLSP-RG2LYdFvM_Pl1mQHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7"
             alt="Profile" 
             className="w-24 h-24 rounded-full border"
           />
@@ -250,13 +272,21 @@ function EmployeeInfo() {
           />
         </form>
       </div>
-      
+      </div>
       ),
       employment: (
+        <div className="relative p-6 bg-white rounded-lg ">
+        <button
+          onClick={handleClose}
+          className="absolute lg:top-[-50px] sm:top-[-70px] right-2 text-red-600 hover:text-red-800"
+        >
+          ✖
+        </button>
+       
 <div className="flex flex-col sm:flex-row gap-6">
   <div className="flex flex-col items-center w-full sm:w-1/3 border-2 p-4 rounded-lg shadow-md">
     <img 
-      src={newEmployee.image || "https://via.placeholder.com/100"} 
+      src="https://th.bing.com/th/id/OIP.IZLLSP-RG2LYdFvM_Pl1mQHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7"
       alt="Profile" 
       className="w-24 h-24 rounded-full border"
     />
@@ -298,13 +328,20 @@ function EmployeeInfo() {
     </div>
   </form>
 </div>
-
+</div>
       ),
       payroll: (
-
+        <div className="relative p-6 bg-white rounded-lg ">
+        <button
+          onClick={handleClose}
+          className="absolute lg:top-[-50px] sm:top-[-70px] right-2 text-red-600 hover:text-red-800"
+        >
+          ✖
+        </button>
+       
 <div className="flex flex-col sm:flex-row gap-6">
         <div className="flex flex-col items-center w-full sm:w-1/3 border-2 p-3 rounded">
-            <img src={newEmployee.image || "https://via.placeholder.com/100"} alt="Profile" className="w-24 h-24 rounded-full border" />
+            <img src="https://th.bing.com/th/id/OIP.IZLLSP-RG2LYdFvM_Pl1mQHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="Profile" className="w-24 h-24 rounded-full border" />
             <input type="file" className="mt-4 border rounded-xl p-2 text-sm w-full" onChange={handleImageUpload} />
            <Link to="/security"> <button type="submit" className="bg-green-700 text-white px-4 py-2 rounded mt-8">Next</button></Link>
 
@@ -411,12 +448,21 @@ function EmployeeInfo() {
 
 
         </div>
+        </div>
       ),
       security: (
+        <div className="relative p-6 bg-white rounded-lg ">
+        <button
+          onClick={handleClose}
+          className="absolute lg:top-[-50px] sm:top-[-70px] right-2 text-red-600 hover:text-red-800"
+        >
+          ✖
+        </button>
+       
         <div className="flex flex-col sm:flex-row gap-6">
   <div className="flex flex-col items-center w-full sm:w-1/3 border-2 p-4 rounded-lg shadow-md">
     <img 
-      src={newEmployee.image || "https://via.placeholder.com/100"} 
+      src="https://th.bing.com/th/id/OIP.IZLLSP-RG2LYdFvM_Pl1mQHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7" 
       alt="Profile" 
       className="w-24 h-24 rounded-full border"
     />
@@ -482,11 +528,20 @@ function EmployeeInfo() {
     </div>
   </div>
 </div>
+</div>
       ),
       files: (
+        <div className="relative p-6 bg-white rounded-lg ">
+        <button
+          onClick={handleClose}
+          className="absolute lg:top-[-50px] sm:top-[-70px] right-2 text-red-600 hover:text-red-800"
+        >
+          ✖
+        </button>
+       
         <div className="flex flex-col sm:flex-row gap-6">
         <div className="flex flex-col items-center w-full sm:w-1/3 border-2 p-3 rounded">
-        <img src={newEmployee.image || "https://via.placeholder.com/100"} alt="pic" className="w-24 h-24 rounded-full border" />
+        <img src= "https://th.bing.com/th/id/OIP.IZLLSP-RG2LYdFvM_Pl1mQHaHa?w=192&h=192&c=7&r=0&o=5&dpr=1.5&pid=1.7" alt="pic" className="w-24 h-24 rounded-full border" />
         <input type="file" className="mt-4 border rounded-xl p-2 text-sm w-full" onChange={handleImageUpload} />
         <button type="submit" className="bg-green-700 text-white px-4 py-2 rounded mt-8">Next</button>
 
@@ -494,12 +549,17 @@ function EmployeeInfo() {
         <div>
           <h2 className="text-lg font-bold">Choose File</h2>
           <input type="file" placeholder="browser" className="mt-4 border rounded-xl p-2 text-sm w-full" />
-        </div></div>
+        <button className="bg-yellow-400 text-white px-4 py-2 rounded mx-50 mt-20  ">Submit</button>
+        </div>
+        </div>
+        </div>
       ),
+     
     };
 
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center p-4">
+      
+      <div className="fixed inset-0  backdrop-blur  flex justify-center items-center p-4">
         <div className="bg-white p-6 rounded-lg w-full max-w-3xl flex flex-col">
           <div className="flex flex-wrap gap-4 border-b pb-2 mb-4 justify-center sm:justify-start">
             {Object.keys(modalContent).map((tab) => (
@@ -517,6 +577,7 @@ function EmployeeInfo() {
   };
 
   return (
+    
     <div className="bg-[#DBF2FF] min-h-screen p-6">
       <h1 className="font-bold text-xl">Employee Info</h1>
 
@@ -538,12 +599,7 @@ function EmployeeInfo() {
       <button className="bg-green-700 text-white px-4 py-2 border rounded " onClick={() => setActiveModal("employee")}>Add New</button>
       {renderModal()}
       </div>
-
-
     </div>
-
-
-
 
     <div className="overflow-x-auto mt-4 rounded">
        
