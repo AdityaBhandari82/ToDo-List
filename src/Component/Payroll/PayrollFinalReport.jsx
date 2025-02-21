@@ -52,7 +52,7 @@ const PayrollFinalReport = () => {
   return (
     <section className="bg-sky-100 flex flex-col w-full">
       <Header/>
-    <div className="min-h-screen bg-blue-50 p-5">
+    <div className="min-h-screen bg-sky-100 p-5">
     <h1 className="text-2xl font-semibold mb-6">Payroll Report</h1>
     
     {/* Filters Section */}

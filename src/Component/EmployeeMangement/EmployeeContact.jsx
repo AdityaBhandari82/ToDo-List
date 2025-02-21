@@ -115,48 +115,11 @@ const EmployeeContact = () => {
   };
 
   return (
-    <div className="bg-[#DBF2FF] p-6 min-h-screen">
-      <h1 className="font-bold text-lg sm:text-xl">Employee Info</h1>
 
-      <div className="bg-white p-4 rounded-lg flex flex-wrap gap-4 items-center justify-between mt-3">
-        <div className="flex flex-wrap gap-4 w-full md:w-auto">
-          <select className="w-full md:w-60 p-2 text-gray-600 border-2 border-gray-600 outline-gray-400 rounded-md">
-            <option>Select Department</option>
-            <option value="hr">Officer</option>
-            <option value="it">Jn. Officer</option>
-            <option value="finance">Manager</option>
-          </select>
-
-          <select
-            className="w-full md:w-60 p-2 border-2 text-gray-600 border-gray-600 outline-gray-400 rounded-md"
-            value={selectedEmployee}
-            onChange={handleEmployeeSelect}
-          >
-            <option value="">Select Employee</option>
-            {employees.map((employee) => (
-              <option key={employee._id} value={employee.name}>
-                {employee.name}
-              </option>
-            ))}
-          </select>
-        </div>
-
-        <div className="flex gap-3 w-full md:w-auto justify-center md:justify-start">
-          <button className="bg-blue-400 text-white px-4 py-2 rounded">
-            Show
-          </button>
-          <button className="bg-green-700 text-white px-4 py-2 rounded">
-            Add New
-          </button>
-          <button className="bg-red-700 text-white px-4 py-2 rounded">
-            Import
-          </button>
-        </div>
-      </div>
-
+      <div className="bg-white">
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="flex flex-wrap md:flex-nowrap p-6 rounded-lg gap-6 justify-center">
-        <div className="bg-white p-6 rounded-lg shadow-md w-full md:w-1/3 flex flex-col items-center">
+        <div className=" p-6 rounded-lg  w-full md:w-1/3 flex flex-col items-center">
             <img
               src={photo || "saira"}
               alt="Profile"
@@ -164,11 +127,11 @@ const EmployeeContact = () => {
             />
             <h2 className="mt-4 text-lg font-semibold">{employeeData.profileName}</h2>
             <button type="submit" className="mt-2 bg-green-500 text-white px-4 py-2 rounded">
-              Update
+              Next
             </button>
           </div>
 
-          <div className="bg-white p-6 rounded-lg shadow-md w-full md:w-2/3">
+          <div className=" p-6 rounded-lg  w-full md:w-2/3">
             <div className="flex flex-wrap border-b pb-2 mb-4 gap-4 text-center">
               <Link
                 to="/employeemanagement/employee_profile"
@@ -253,7 +216,7 @@ const EmployeeContact = () => {
           </div>
         </div>
       </form>
-    </div>
+      </div>
   );
 };
 

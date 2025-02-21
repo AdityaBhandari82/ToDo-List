@@ -3,7 +3,10 @@ import icon from "../Payroll/Print.png";
 import Header from '../Header';
 
 
+
 function LeaveBalance() {
+  
+
    
   return (
     <>
@@ -28,6 +31,8 @@ function LeaveBalance() {
         </div> 
         </div>
       </section>
+
+     
 
 
       </section>

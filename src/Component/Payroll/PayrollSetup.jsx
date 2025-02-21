@@ -2,9 +2,13 @@ import React, { useState } from "react";
 import Header from "../Header";
 import Delete from "./images/delete1.png";
 import Edit from "./images/edit1.png";
+import SetupPopup from "./SetupPopup";
 
 function PayrollSetup() {
   const [showTable, setShowTable] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+
+  
 
   const handleShow = () => {
     setShowTable(true);
@@ -55,9 +59,13 @@ function PayrollSetup() {
             >
               Show
             </button>
-            <button className="bg-teal-700 text-white px-3 py-1 rounded w-full md:w-auto mt-2 md:mt-0 md:mr-2">
+            <button className="bg-teal-700 text-white px-3 py-1 rounded w-full md:w-auto mt-2 md:mt-0 md:mr-2" onClick={() => setIsOpen(true)}>
               Add New
             </button>
+            <SetupPopup //button for popup
+                    isOpen={isOpen}
+                    onClose={() => setIsOpen(false)}
+                />
           </div>
 
           {/* Flex Table */}

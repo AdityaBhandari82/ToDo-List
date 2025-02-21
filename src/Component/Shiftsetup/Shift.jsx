@@ -1,6 +1,8 @@
 import React from 'react';
 
+
 function Shift() {
+ 
   return (
     <>
       <section className="bg-sky-100 flex flex-col w-full h-screen">
